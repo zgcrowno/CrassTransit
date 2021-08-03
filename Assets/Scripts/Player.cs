@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
 
     public void Move(float _horizontalMovementMultiplier)
     {
-        rb.velocity = new Vector2(m_fMoveSpeed * _horizontalMovementMultiplier * Time.deltaTime, rb.velocity.y);
+        //rb.velocity = new Vector2(m_fMoveSpeed * _horizontalMovementMultiplier * Time.deltaTime, rb.velocity.y);
     }
 
     public void Jump()
