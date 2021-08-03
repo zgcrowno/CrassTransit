@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
 
     public void Move(float _horizontalMovementMultiplier)
     {
-        //rb.velocity = new Vector2(m_fMoveSpeed * _horizontalMovementMultiplier * Time.deltaTime, rb.velocity.y);
+        rb.velocity = new Vector2(m_fMoveSpeed * _horizontalMovementMultiplier * Time.deltaTime, rb.velocity.y);
     }
 
     public void Jump()
@@ -152,7 +152,15 @@ public class Player : MonoBehaviour
         Bounds bounds = cc.bounds;
         Vector2 topLeft = new Vector2(bounds.center.x - bounds.extents.x, bounds.center.y);
         Vector2 bottomRight = new Vector2(bounds.center.x + bounds.extents.x, bounds.center.y - bounds.extents.y);
-        return Physics2D.OverlapArea(topLeft, bottomRight, layerMask);
+
+        foreach (var collider in Physics2D.OverlapAreaAll(topLeft, bottomRight, layerMask))
+        {
+            if (!collider.isTrigger)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void UpdateHUDInfo()
