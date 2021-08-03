@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public abstract class Gun : MonoBehaviour
 {
     public bool m_bIsAutomatic;
     public int m_iClipSize;
+    public int m_iNumClips;
     public float m_fMaxTimeBetweenShots;
     public float m_fMaxReloadTime;
     public float m_fShotDistance;
@@ -14,8 +16,13 @@ public abstract class Gun : MonoBehaviour
     private int m_iShotsInClip;
     private float m_fTimeBetweenShots;
     private float m_fReloadTime;
+    protected GameObject m_pHudInfo;
+    protected GameObject m_pReloadingImage;
+    protected TextMeshProUGUI m_pShotsInClipText;
+    protected TextMeshProUGUI m_pClipSizeText;
+    protected TextMeshProUGUI m_pNumClipsText;
 
-    private void Start()
+    protected virtual void Awake()
     {
         m_iShotsInClip = m_iClipSize;
     }
@@ -33,13 +40,15 @@ public abstract class Gun : MonoBehaviour
             if (m_fReloadTime == 0)
             {
                 m_iShotsInClip = m_iClipSize;
+                m_iNumClips = m_iNumClips > 0 ? m_iNumClips - 1 : m_iNumClips;
             }
+            UpdateHUDInfo();
         }
     }
 
     public void Reload()
     {
-        if (m_iShotsInClip < m_iClipSize)
+        if (m_iShotsInClip < m_iClipSize && m_iNumClips != 0)
             m_fReloadTime = m_fMaxReloadTime;
     }
 
@@ -58,6 +67,8 @@ public abstract class Gun : MonoBehaviour
 
             --m_iShotsInClip;
 
+            UpdateHUDInfo();
+
             if (m_iShotsInClip > 0)
             {
                 m_fTimeBetweenShots = m_fMaxTimeBetweenShots;
@@ -71,6 +82,42 @@ public abstract class Gun : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void GunshotRaycast(Vector2 _fireDirection)
+    {
+        int layerMask = LayerMask.NameToLayer("Player");
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, _fireDirection, m_fShotDistance, layerMask);
+        if (hit)
+        {
+            Debug.DrawRay(transform.position, hit.point - new Vector2(transform.position.x, transform.position.y), Color.red, 0.25f);
+            AntiTarget antiTarget = hit.collider.gameObject.GetComponent<AntiTarget>();
+            if (antiTarget != null)
+            {
+                antiTarget.GotShot();
+            }
+        }
+        else
+        {
+            Debug.DrawRay(transform.position, new Vector2(transform.position.x, transform.position.y) + (_fireDirection * 10000), Color.red, 0.25f);
+        }
+    }
+
+    public void EnableHudInfo(bool _enabled)
+    {
+        m_pHudInfo.SetActive(_enabled);
+    }
+
+    public void UpdateHUDInfo()
+    {
+        if (m_fReloadTime > 0)
+            m_pReloadingImage.transform.localScale = new Vector3(m_pReloadingImage.transform.localScale.x, Mathf.Lerp(1, 0, m_fReloadTime / m_fMaxReloadTime), m_pReloadingImage.transform.localScale.z);
+        else
+            m_pReloadingImage.transform.localScale = new Vector3(m_pReloadingImage.transform.localScale.x, 0, m_pReloadingImage.transform.localScale.z);
+
+        m_pShotsInClipText.text = m_iShotsInClip.ToString();
+        m_pClipSizeText.text = m_iClipSize.ToString();
+        m_pNumClipsText.text = m_iNumClips < 0 ? m_pNumClipsText.text : m_iNumClips.ToString();
     }
 
     public abstract void GunSpecificFire(Vector2 _fireDirection);

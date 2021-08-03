@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 791993229248432021}
   - component: {fileID: 791993229248432022}
-  - component: {fileID: 791993229248432023}
+  - component: {fileID: 6799232740775564815}
   - component: {fileID: 791993229248432016}
   - component: {fileID: 791993229248432017}
   m_Layer: 3
@@ -88,8 +88,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &791993229248432023
-BoxCollider2D:
+--- !u!70 &6799232740775564815
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -101,19 +101,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0023698807, y: -0.06043154}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.33, y: 0.32}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.11671257, y: 0.19913685}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.0025617282, y: -0.060458183}
+  m_Size: {x: 0.117884, y: 0.20088594}
+  m_Direction: 0
 --- !u!50 &791993229248432016
 Rigidbody2D:
   serializedVersion: 4
@@ -147,6 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c043c7952e1dd0d46a8f930d389dae8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_bRegularMovementAllowed: 0
   m_iMaxConsecutiveJumps: 3
   m_fMoveSpeed: 200
   m_fJumpForce: 5
@@ -171,7 +162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1188051908920840924, guid: f872bcb3aefd9dc43930cbb71d6cdeca, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4533301841791461167, guid: f872bcb3aefd9dc43930cbb71d6cdeca, type: 3}
       propertyPath: m_RootOrder
@@ -377,7 +368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7297776515100752616, guid: 031eb49664cfbec49bb69d3a7a5e1d82, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 031eb49664cfbec49bb69d3a7a5e1d82, type: 3}

@@ -97,7 +97,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_bIsAutomatic: 1
   m_iClipSize: 30
+  m_iNumClips: -1
   m_fMaxTimeBetweenShots: 0.05
   m_fMaxReloadTime: 2
   m_fShotDistance: 10000
-  m_fShootForce: 1.5
+  m_fShootForce: 2.5

@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    public bool m_bRegularMovementAllowed;
     public int m_iMaxConsecutiveJumps;
     public float m_fMoveSpeed;
     public float m_fJumpForce;
@@ -16,13 +17,23 @@ public class Player : MonoBehaviour
     private int m_iGunIndex;
     private int m_iConsecutiveJumps;
     private Rigidbody2D rb;
-    private BoxCollider2D bc;
+    private CapsuleCollider2D cc;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        bc = GetComponent<BoxCollider2D>();
+        cc = GetComponent<CapsuleCollider2D>();
         m_iConsecutiveJumps = m_iMaxConsecutiveJumps;
+
+        // Disable guns as appropriate.
+        for (int i = 0; i < m_cGuns.Count; ++i)
+        {
+            if (i != m_iGunIndex)
+                m_cGuns[i].gameObject.SetActive(false);
+        }
+
+        // Update the HUD.
+        UpdateHUDInfo();
     }
 
     private void Update()
@@ -117,6 +128,7 @@ public class Player : MonoBehaviour
         m_iGunIndex = _index;
 
         m_cGuns[m_iGunIndex].gameObject.SetActive(true);
+        UpdateHUDInfo();
     }
 
     public void Reload()
@@ -137,9 +149,22 @@ public class Player : MonoBehaviour
     public bool IsGrounded()
     {
         int layerMask = LayerMask.NameToLayer("Player");
-        Bounds bounds = bc.bounds;
+        Bounds bounds = cc.bounds;
         Vector2 topLeft = new Vector2(bounds.center.x - bounds.extents.x, bounds.center.y);
         Vector2 bottomRight = new Vector2(bounds.center.x + bounds.extents.x, bounds.center.y - bounds.extents.y);
         return Physics2D.OverlapArea(topLeft, bottomRight, layerMask);
+    }
+
+    public void UpdateHUDInfo()
+    {
+        for (int i = 0; i < m_cGuns.Count; ++i)
+        {
+            Gun gun = m_cGuns[i];
+            gun.UpdateHUDInfo();
+            if (i != m_iGunIndex)
+                gun.EnableHudInfo(false);
+            else
+                gun.EnableHudInfo(true);
+        }
     }
 }

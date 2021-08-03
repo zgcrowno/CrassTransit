@@ -89,6 +89,6 @@ public class PlayerController : MonoBehaviour
 
     bool PlayerCanJump()
     {
-        return m_pPlayer.IsJumping() || (m_pPlayer.IsGrounded() && !m_bFireInputIsActive);
+        return m_pPlayer.IsJumping() || (m_pPlayer.m_bRegularMovementAllowed && m_pPlayer.IsGrounded() && !m_bFireInputIsActive);
     }
 }
