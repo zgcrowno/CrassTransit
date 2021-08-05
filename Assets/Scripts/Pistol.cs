@@ -16,6 +16,13 @@ public class Pistol : Gun
             {
                 antiTarget.GotShot();
             }
+            Block block = hit.collider.gameObject.GetComponent<Block>();
+            if(block != null)
+            {
+
+                block.LoseHealth();
+
+            }
         }
         else
         {
