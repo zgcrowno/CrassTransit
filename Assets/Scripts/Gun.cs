@@ -55,7 +55,7 @@ public abstract class Gun : MonoBehaviour
 
     public void SwapOut()
     {
-        m_fReloadTime = m_fReloadTime > 0 ? m_fMaxReloadTime : 0;
+        m_fReloadTime = m_fReloadTime > 0 && m_iShotsInClip == 0 ? m_fMaxReloadTime : 0;
         gameObject.SetActive(false);
     }
 
