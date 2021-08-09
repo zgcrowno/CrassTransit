@@ -5,7 +5,6 @@ using TMPro;
 
 public class AssaultRifle : Gun
 {
-
     protected override void Awake()
     {
         base.Awake();

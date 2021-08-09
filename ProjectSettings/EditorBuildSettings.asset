@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Justins Level.unity
     guid: fa136e954de44364792c875501287466
+  - enabled: 1
+    path: Assets/Scenes/FeatureTest.unity
+    guid: 73b75a8f35d697242b6532b8dec75762
   m_configObjects: {}

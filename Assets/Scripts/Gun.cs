@@ -12,6 +12,7 @@ public abstract class Gun : MonoBehaviour
     public float m_fMaxReloadTime;
     public float m_fShotDistance;
     public float m_fShootForce;
+    public GameObject rayBulletPrefab;
 
     private int m_iShotsInClip;
     private float m_fTimeBetweenShots;
@@ -90,24 +91,32 @@ public abstract class Gun : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(transform.position, _fireDirection, m_fShotDistance, layerMask);
         if (hit)
         {
-            Debug.DrawRay(transform.position, hit.point - new Vector2(transform.position.x, transform.position.y), Color.red, 0.25f);
+            SpawnRayBullet(transform.position, hit.point);
             AntiTarget antiTarget = hit.collider.gameObject.GetComponent<AntiTarget>();
             if (antiTarget != null)
             {
                 antiTarget.GotShot();
             }
-            Block block = hit.collider.gameObject.GetComponent<Block>();
-            if (block != null)
+            else
             {
-
-                block.LoseHealth();
-
+                Block block = hit.collider.gameObject.GetComponent<Block>();
+                if (block != null)
+                {
+                    block.LoseHealth();
+                }
             }
         }
         else
         {
-            Debug.DrawRay(transform.position, new Vector2(transform.position.x, transform.position.y) + (_fireDirection * 10000), Color.red, 0.25f);
+            SpawnRayBullet(transform.position, new Vector2(transform.position.x, transform.position.y) + (_fireDirection * 10000));
         }
+    }
+
+    public void SpawnRayBullet(Vector3 _startPos, Vector3 _endPos)
+    {
+        RayBullet rb = Instantiate<GameObject>(rayBulletPrefab).GetComponent<RayBullet>();
+        rb.SetUp(_startPos, _endPos);
+        Destroy(rb.gameObject, RayBullet.M_FLifetime);
     }
 
     public void EnableHudInfo(bool _enabled)
