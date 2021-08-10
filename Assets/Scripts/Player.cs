@@ -169,10 +169,18 @@ public class Player : MonoBehaviour
         {
             Gun gun = m_cGuns[i];
             gun.UpdateHUDInfo();
-            if (i != m_iGunIndex)
-                gun.EnableHudInfo(false);
-            else
-                gun.EnableHudInfo(true);
+            // Commenting this out in order to display all weapons (whether currently
+            // equipped or not) in the HUD.
+            //if (i != m_iGunIndex)
+            //    gun.EnableHudInfo(false);
+            //else
+            //    gun.EnableHudInfo(true);
         }
+    }
+
+    public void ApplyForce(Vector3 _force)
+    {
+        rb.velocity = Vector2.zero;
+        rb.AddForce(_force, ForceMode2D.Impulse);
     }
 }

@@ -10,7 +10,7 @@ public class AssaultRifle : Gun
         base.Awake();
 
         m_pHudInfo = GameObject.Find("AssaultRifleInfo");
-        m_pReloadingImage = GameObject.Find("HUD").transform.Find("ReloadingImage").gameObject;
+        m_pReloadingImage = m_pHudInfo.transform.Find("ReloadingImage").gameObject;
         m_pShotsInClipText = m_pHudInfo.transform.Find("ShotsInClip").GetComponent<TextMeshProUGUI>();
         m_pClipSizeText = m_pHudInfo.transform.Find("ClipSize").GetComponent<TextMeshProUGUI>();
         m_pNumClipsText = m_pHudInfo.transform.Find("NumClips").GetComponent<TextMeshProUGUI>();
