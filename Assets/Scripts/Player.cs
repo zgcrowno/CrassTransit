@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        // Point gun at mouse position.
+        // Point gun at mouse cursor's position.
         if (!m_bIsAimingWithStick)
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
