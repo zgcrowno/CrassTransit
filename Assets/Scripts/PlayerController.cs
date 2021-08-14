@@ -22,6 +22,10 @@ public class PlayerController : MonoBehaviour
         controls.Gameplay.FireGun.canceled += ctx => StopFiringPlayerGun();
         controls.Gameplay.NextGun.performed += ctx => m_pPlayer.ScrollThroughGuns(ctx.ReadValue<float>());
         controls.Gameplay.Reload.performed += ctx => m_pPlayer.Reload();
+        controls.Gameplay.SelectPistol.performed += ctx => m_pPlayer.EquipGunAtIndex(0);
+        controls.Gameplay.SelectAssaultRifle.performed += ctx => m_pPlayer.EquipGunAtIndex(1);
+        controls.Gameplay.SelectShotgun.performed += ctx => m_pPlayer.EquipGunAtIndex(2);
+        controls.Gameplay.SelectRocketLauncher.performed += ctx => m_pPlayer.EquipGunAtIndex(3);
     }
 
     // Start is called before the first frame update

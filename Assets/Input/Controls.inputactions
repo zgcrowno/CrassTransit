@@ -68,6 +68,38 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "SelectPistol",
+                    "type": "Button",
+                    "id": "bced91be-547f-474e-9927-4e4dc95307c2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "SelectAssaultRifle",
+                    "type": "Button",
+                    "id": "3f5ab990-8e52-4d36-a6b5-59b030d0bfeb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "SelectShotgun",
+                    "type": "Button",
+                    "id": "fef8382c-4cd3-4b11-b044-4615ef20d2c6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "SelectRocketLauncher",
+                    "type": "Button",
+                    "id": "1dd09918-4f6f-48e7-8ef2-807455438496",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -398,6 +430,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8fbc3e39-1889-4eb1-a75e-bc517b663ddc",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectPistol",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3c3e10a8-d2e9-4836-8ab7-ce3cd00ad626",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectAssaultRifle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "79963d54-d5e7-462b-82ed-439fab705d48",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectShotgun",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f25ddb25-003d-434b-86f8-5ecc35f358bd",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SelectRocketLauncher",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

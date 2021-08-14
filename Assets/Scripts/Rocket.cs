@@ -16,24 +16,25 @@ public class Rocket : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        AntiTarget antiTarget = collision.gameObject.GetComponent<AntiTarget>();
-        if (antiTarget != null)
+        Block block = collision.gameObject.GetComponent<Block>();
+        if (block != null)
         {
-            antiTarget.GotShot();
-        }
-        else
-        {
-            Block block = collision.gameObject.GetComponent<Block>();
-            if (block != null)
-            {
-                block.LoseHealth();
-            }
+            block.LoseHealth();
         }
 
         GameObject explosion = Instantiate<GameObject>(explosionPrefab);
         explosion.transform.position = transform.position;
         Destroy(explosion, Explosion.M_FLifetime);
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        AntiTarget antiTarget = collision.gameObject.GetComponent<AntiTarget>();
+        if (antiTarget != null)
+        {
+            antiTarget.GotShot();
+        }
     }
 
     public void FireInDirection(Vector2 _direction)

@@ -81,6 +81,38 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""SelectPistol"",
+                    ""type"": ""Button"",
+                    ""id"": ""bced91be-547f-474e-9927-4e4dc95307c2"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""SelectAssaultRifle"",
+                    ""type"": ""Button"",
+                    ""id"": ""3f5ab990-8e52-4d36-a6b5-59b030d0bfeb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""SelectShotgun"",
+                    ""type"": ""Button"",
+                    ""id"": ""fef8382c-4cd3-4b11-b044-4615ef20d2c6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""SelectRocketLauncher"",
+                    ""type"": ""Button"",
+                    ""id"": ""1dd09918-4f6f-48e7-8ef2-807455438496"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -413,6 +445,50 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8fbc3e39-1889-4eb1-a75e-bc517b663ddc"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectPistol"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3c3e10a8-d2e9-4836-8ab7-ce3cd00ad626"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectAssaultRifle"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""79963d54-d5e7-462b-82ed-439fab705d48"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectShotgun"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f25ddb25-003d-434b-86f8-5ecc35f358bd"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SelectRocketLauncher"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -429,6 +505,10 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
         m_Gameplay_Reload = m_Gameplay.FindAction("Reload", throwIfNotFound: true);
         m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
+        m_Gameplay_SelectPistol = m_Gameplay.FindAction("SelectPistol", throwIfNotFound: true);
+        m_Gameplay_SelectAssaultRifle = m_Gameplay.FindAction("SelectAssaultRifle", throwIfNotFound: true);
+        m_Gameplay_SelectShotgun = m_Gameplay.FindAction("SelectShotgun", throwIfNotFound: true);
+        m_Gameplay_SelectRocketLauncher = m_Gameplay.FindAction("SelectRocketLauncher", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -486,6 +566,10 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_Jump;
     private readonly InputAction m_Gameplay_Reload;
     private readonly InputAction m_Gameplay_Pause;
+    private readonly InputAction m_Gameplay_SelectPistol;
+    private readonly InputAction m_Gameplay_SelectAssaultRifle;
+    private readonly InputAction m_Gameplay_SelectShotgun;
+    private readonly InputAction m_Gameplay_SelectRocketLauncher;
     public struct GameplayActions
     {
         private @Controls m_Wrapper;
@@ -498,6 +582,10 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
         public InputAction @Reload => m_Wrapper.m_Gameplay_Reload;
         public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
+        public InputAction @SelectPistol => m_Wrapper.m_Gameplay_SelectPistol;
+        public InputAction @SelectAssaultRifle => m_Wrapper.m_Gameplay_SelectAssaultRifle;
+        public InputAction @SelectShotgun => m_Wrapper.m_Gameplay_SelectShotgun;
+        public InputAction @SelectRocketLauncher => m_Wrapper.m_Gameplay_SelectRocketLauncher;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -531,6 +619,18 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Pause.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
+                @SelectPistol.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSelectPistol;
+                @SelectPistol.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSelectPistol;
+                @SelectPistol.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSelectPistol;
+                @SelectAssaultRifle.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSelectAssaultRifle;
+                @SelectAssaultRifle.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSelectAssaultRifle;
+                @SelectAssaultRifle.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSelectAssaultRifle;
+                @SelectShotgun.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSelectShotgun;
+                @SelectShotgun.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSelectShotgun;
+                @SelectShotgun.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSelectShotgun;
+                @SelectRocketLauncher.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSelectRocketLauncher;
+                @SelectRocketLauncher.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSelectRocketLauncher;
+                @SelectRocketLauncher.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSelectRocketLauncher;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -559,6 +659,18 @@ public class @Controls : IInputActionCollection, IDisposable
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
+                @SelectPistol.started += instance.OnSelectPistol;
+                @SelectPistol.performed += instance.OnSelectPistol;
+                @SelectPistol.canceled += instance.OnSelectPistol;
+                @SelectAssaultRifle.started += instance.OnSelectAssaultRifle;
+                @SelectAssaultRifle.performed += instance.OnSelectAssaultRifle;
+                @SelectAssaultRifle.canceled += instance.OnSelectAssaultRifle;
+                @SelectShotgun.started += instance.OnSelectShotgun;
+                @SelectShotgun.performed += instance.OnSelectShotgun;
+                @SelectShotgun.canceled += instance.OnSelectShotgun;
+                @SelectRocketLauncher.started += instance.OnSelectRocketLauncher;
+                @SelectRocketLauncher.performed += instance.OnSelectRocketLauncher;
+                @SelectRocketLauncher.canceled += instance.OnSelectRocketLauncher;
             }
         }
     }
@@ -573,5 +685,9 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnReload(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnSelectPistol(InputAction.CallbackContext context);
+        void OnSelectAssaultRifle(InputAction.CallbackContext context);
+        void OnSelectShotgun(InputAction.CallbackContext context);
+        void OnSelectRocketLauncher(InputAction.CallbackContext context);
     }
 }

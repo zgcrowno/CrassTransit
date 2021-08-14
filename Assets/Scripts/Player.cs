@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -56,6 +57,15 @@ public class Player : MonoBehaviour
         {
             m_bIsJumping = false;
             m_iConsecutiveJumps = m_iMaxConsecutiveJumps;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<AntiTarget>() != null)
+        {
+            Debug.Log("Level FAILED");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 

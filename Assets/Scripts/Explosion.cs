@@ -39,12 +39,6 @@ public class Explosion : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        AntiTarget antiTarget = collision.gameObject.GetComponent<AntiTarget>();
-        if (antiTarget != null)
-        {
-            antiTarget.GotShot();
-        }
-
         Block block = collision.gameObject.GetComponent<Block>();
         if (block != null)
         {
@@ -56,6 +50,15 @@ public class Explosion : MonoBehaviour
         {
             gameObject.layer = LayerMask.NameToLayer("IgnorePlayer");
             player.ApplyForce(-collision.contacts[0].normal * m_fForce);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        AntiTarget antiTarget = collision.gameObject.GetComponent<AntiTarget>();
+        if (antiTarget != null)
+        {
+            antiTarget.GotShot();
         }
     }
 }
