@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Block : MonoBehaviour
 {
+    public GameObject part;
     public int Health;
     Animator anim;
-
+    public AudioSource sound;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,4 +32,13 @@ public class Block : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+    public void Sound()
+    {
+        sound.Play();
+    }
+    public void Particle()
+    {
+        part.SetActive(true);
+    }
+
 }
