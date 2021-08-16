@@ -195,10 +195,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1178382953429165277, guid: 8a68eaf7cfaac9c4aa3eea1b6c870162, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3980240846792157680, guid: 8a68eaf7cfaac9c4aa3eea1b6c870162, type: 3}
       propertyPath: m_Name
       value: RightShootingFrog (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3980240846792157681, guid: 8a68eaf7cfaac9c4aa3eea1b6c870162, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 2913015863854896783, guid: 14bab382e72db6a49895dbdefd5717f3, type: 3}
     - target: {fileID: 3980240846792157687, guid: 8a68eaf7cfaac9c4aa3eea1b6c870162, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -453,6 +461,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1178382953429165277, guid: 8a68eaf7cfaac9c4aa3eea1b6c870162, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3980240846792157680, guid: 8a68eaf7cfaac9c4aa3eea1b6c870162, type: 3}
       propertyPath: m_Name
       value: LeftShootingFrog (2)
