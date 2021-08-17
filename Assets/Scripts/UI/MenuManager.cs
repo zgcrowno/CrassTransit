@@ -19,7 +19,10 @@ public static class MenuManager
 
     public static void GoToMainMenu()
     {
-        SceneManager.UnloadSceneAsync("PauseMenu");
+        if (SceneManager.sceneCount > 1) //Pause menu must be open
+        { 
+            SceneManager.UnloadSceneAsync("PauseMenu");
+        }
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 

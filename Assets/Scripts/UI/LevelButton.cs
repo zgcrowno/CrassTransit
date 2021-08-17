@@ -21,14 +21,14 @@ public class LevelButton : MonoBehaviour
 
         if (this.completed)
         {
-            TextMeshPro levelCompleted_tmp = transform.Find("LevelCompleted").GetComponent<TextMeshPro>();
+            TextMeshProUGUI levelCompleted_tmp = transform.Find("LevelCompleted").GetComponent<TextMeshProUGUI>();
             levelCompleted_tmp.text = "Complete";
             levelCompleted_tmp.color = Color.green;
 
             transform.Find("BestScore_Static").gameObject.SetActive(true);
             GameObject bestScore_go = transform.Find("BestScore_Dynamic").gameObject;
             bestScore_go.SetActive(true);
-            bestScore_go.GetComponent<TextMeshPro>().text = Stringify(this.bestTime);
+            bestScore_go.GetComponent<TextMeshProUGUI>().text = Stringify(this.bestTime);
         }
 
         else
@@ -50,33 +50,31 @@ public class LevelButton : MonoBehaviour
     {
         int h = 0;
         int m = 0;
-        int s = 0;
 
-        while (score >= 3600)
+        while (score >= 3600f)
         {
             h++;
-            score -= 3600;
+            score -= 3600f;
         }
-        while (score >= 60)
+        while (score >= 60f)
         {
             m++;
-            score -= 60;
+            score -= 60f;
         }
-        s = Mathf.FloorToInt(score);
 
         string scoreString = "";
 
-        if (h < 10)
-            scoreString += "0";
-        scoreString += (h + ":");
+        //if (h < 10)
+        //    scoreString += "0";
+        //scoreString += (h + ":");
 
         if (m < 10)
             scoreString += "0";
         scoreString += (m + ":");
 
-        if (s < 10)
+        if (score < 10f)
             scoreString += "0";
-        scoreString += (s);
+        scoreString += (score.ToString("F3"));
 
         return scoreString;
     }

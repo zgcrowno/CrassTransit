@@ -21,6 +21,12 @@ public class MenuButtons : MonoBehaviour
         MenuManager.QuitGame();
     }
 
+    public void WipeSave()
+    {
+        SaveSystem.WipeSave();
+        MenuManager.GoToMainMenu();
+    }
+
     public void OnEnable()
     {
         Time.timeScale = 0f;
