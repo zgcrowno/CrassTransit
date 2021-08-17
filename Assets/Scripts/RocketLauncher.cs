@@ -18,7 +18,7 @@ public class RocketLauncher : Gun
         m_pNumClipsText = m_pHudInfo.transform.Find("NumClips").GetComponent<TextMeshProUGUI>();
     }
 
-    public override void GunSpecificFire(Vector2 _fireDirection)
+    public override void GunSpecificFire(Vector2 _fireDirection, bool _ricochet = false)
     {
         Rocket rocket = Instantiate<GameObject>(rocketPrefab).GetComponent<Rocket>();
         rocket.transform.position = transform.position;

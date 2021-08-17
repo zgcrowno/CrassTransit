@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
         controls.Gameplay.AimWithMouse.performed += ctx => m_pPlayer.SetAimType(false);
         controls.Gameplay.FireGun.performed += ctx => FirePlayerGun();
         controls.Gameplay.FireGun.canceled += ctx => StopFiringPlayerGun();
+        controls.Gameplay.FireGunRicochet.performed += ctx => FirePlayerGun(true);
+        controls.Gameplay.FireGunRicochet.canceled += ctx => StopFiringPlayerGun();
         controls.Gameplay.NextGun.performed += ctx => m_pPlayer.ScrollThroughGuns(ctx.ReadValue<float>());
         controls.Gameplay.Reload.performed += ctx => m_pPlayer.Reload();
         controls.Gameplay.SelectPistol.performed += ctx => m_pPlayer.EquipGunAtIndex(0);
@@ -72,16 +74,16 @@ public class PlayerController : MonoBehaviour
         m_pPlayer.AimWithStick(_aimDirection);
     }
 
-    void FirePlayerGun()
+    void FirePlayerGun(bool _ricochet = false)
     {
         m_bFireInputIsActive = true;
         if (m_pPlayer.IsWieldingAutomatic())
         {
-            m_pPlayer.StartFiringAutomatic();
+            m_pPlayer.StartFiringAutomatic(_ricochet);
         }
         else
         {
-            m_pPlayer.FireGun();
+            m_pPlayer.FireGun(_ricochet);
         }
     }
 

@@ -16,8 +16,8 @@ public class Pistol : Gun
         m_pNumClipsText = m_pHudInfo.transform.Find("NumClips").GetComponent<TextMeshProUGUI>();
     }
 
-    public override void GunSpecificFire(Vector2 _fireDirection)
+    public override void GunSpecificFire(Vector2 _fireDirection, bool _ricochet = false)
     {
-        GunshotRaycast(_fireDirection);
+        GunshotRaycast(_fireDirection, _ricochet);
     }
 }

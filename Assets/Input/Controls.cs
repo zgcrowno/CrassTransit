@@ -27,6 +27,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
+                    ""name"": ""FireGunRicochet"",
+                    ""type"": ""Button"",
+                    ""id"": ""69e9d67d-5110-4832-b4c5-699c51c7a5e4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
                     ""name"": ""NextGun"",
                     ""type"": ""Value"",
                     ""id"": ""72731693-f29f-47c6-9710-b2d2a19a246f"",
@@ -489,6 +497,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""SelectRocketLauncher"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""297a2c4f-92bd-40e5-9054-1ca07cbcfd5e"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FireGunRicochet"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -498,6 +517,7 @@ public class @Controls : IInputActionCollection, IDisposable
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_FireGun = m_Gameplay.FindAction("FireGun", throwIfNotFound: true);
+        m_Gameplay_FireGunRicochet = m_Gameplay.FindAction("FireGunRicochet", throwIfNotFound: true);
         m_Gameplay_NextGun = m_Gameplay.FindAction("NextGun", throwIfNotFound: true);
         m_Gameplay_MoveRight = m_Gameplay.FindAction("MoveRight", throwIfNotFound: true);
         m_Gameplay_AimWithStick = m_Gameplay.FindAction("AimWithStick", throwIfNotFound: true);
@@ -559,6 +579,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Gameplay;
     private IGameplayActions m_GameplayActionsCallbackInterface;
     private readonly InputAction m_Gameplay_FireGun;
+    private readonly InputAction m_Gameplay_FireGunRicochet;
     private readonly InputAction m_Gameplay_NextGun;
     private readonly InputAction m_Gameplay_MoveRight;
     private readonly InputAction m_Gameplay_AimWithStick;
@@ -575,6 +596,7 @@ public class @Controls : IInputActionCollection, IDisposable
         private @Controls m_Wrapper;
         public GameplayActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @FireGun => m_Wrapper.m_Gameplay_FireGun;
+        public InputAction @FireGunRicochet => m_Wrapper.m_Gameplay_FireGunRicochet;
         public InputAction @NextGun => m_Wrapper.m_Gameplay_NextGun;
         public InputAction @MoveRight => m_Wrapper.m_Gameplay_MoveRight;
         public InputAction @AimWithStick => m_Wrapper.m_Gameplay_AimWithStick;
@@ -598,6 +620,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @FireGun.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFireGun;
                 @FireGun.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFireGun;
                 @FireGun.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFireGun;
+                @FireGunRicochet.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFireGunRicochet;
+                @FireGunRicochet.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFireGunRicochet;
+                @FireGunRicochet.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnFireGunRicochet;
                 @NextGun.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnNextGun;
                 @NextGun.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnNextGun;
                 @NextGun.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnNextGun;
@@ -638,6 +663,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @FireGun.started += instance.OnFireGun;
                 @FireGun.performed += instance.OnFireGun;
                 @FireGun.canceled += instance.OnFireGun;
+                @FireGunRicochet.started += instance.OnFireGunRicochet;
+                @FireGunRicochet.performed += instance.OnFireGunRicochet;
+                @FireGunRicochet.canceled += instance.OnFireGunRicochet;
                 @NextGun.started += instance.OnNextGun;
                 @NextGun.performed += instance.OnNextGun;
                 @NextGun.canceled += instance.OnNextGun;
@@ -678,6 +706,7 @@ public class @Controls : IInputActionCollection, IDisposable
     public interface IGameplayActions
     {
         void OnFireGun(InputAction.CallbackContext context);
+        void OnFireGunRicochet(InputAction.CallbackContext context);
         void OnNextGun(InputAction.CallbackContext context);
         void OnMoveRight(InputAction.CallbackContext context);
         void OnAimWithStick(InputAction.CallbackContext context);

@@ -60,11 +60,11 @@ public abstract class Gun : MonoBehaviour
     }
 
     // Returns whether or not the gun was successfully able to fire.
-    public bool Fire(Vector2 _fireDirection)
+    public bool Fire(Vector2 _fireDirection, bool _ricochet = false)
     {
         if (m_iShotsInClip > 0 && m_fTimeBetweenShots == 0 && m_fReloadTime == 0)
         {
-            GunSpecificFire(_fireDirection);
+            GunSpecificFire(_fireDirection, _ricochet);
 
             --m_iShotsInClip;
 
@@ -85,24 +85,31 @@ public abstract class Gun : MonoBehaviour
         return false;
     }
 
-    public void GunshotRaycast(Vector2 _fireDirection)
+    public void GunshotRaycast(Vector2 _fireDirection, bool _ricochet = false)
     {
         int layerMask = LayerMask.NameToLayer("Player");
         RaycastHit2D hit = Physics2D.Raycast(transform.position, _fireDirection, m_fShotDistance, layerMask);
         if (hit)
         {
+            Debug.Log(hit.collider.gameObject.name);
             SpawnRayBullet(transform.position, hit.point);
-            AntiTarget antiTarget = hit.collider.gameObject.GetComponent<AntiTarget>();
-            if (antiTarget != null)
+            CheckForHitObjects(hit.collider.gameObject);
+
+            if (_ricochet)
             {
-                antiTarget.GotShot();
-            }
-            else
-            {
-                Block block = hit.collider.gameObject.GetComponent<Block>();
-                if (block != null)
+                // We have to subtract transformToHitNormalized from hit.point in the raycast below
+                // or else the raycast will likely hit the tilemap at the point from which it's firing.
+                Vector2 transformToHitNormalized = (hit.point - new Vector2(transform.position.x, transform.position.y)).normalized;
+                Vector2 reflectionVec = (_fireDirection - 2 * Vector2.Dot(_fireDirection, hit.normal) * hit.normal).normalized;
+                RaycastHit2D ricochetHit = Physics2D.Raycast(hit.point - transformToHitNormalized, reflectionVec, m_fShotDistance, layerMask);
+                if (ricochetHit)
                 {
-                    block.LoseHealth();
+                    SpawnRayBullet(hit.point, ricochetHit.point);
+                    CheckForHitObjects(ricochetHit.collider.gameObject);
+                }
+                else
+                {
+                    SpawnRayBullet(hit.point, new Vector2(hit.point.x, hit.point.y) + (reflectionVec * 10000));
                 }
             }
         }
@@ -136,5 +143,22 @@ public abstract class Gun : MonoBehaviour
         m_pNumClipsText.text = m_iNumClips < 0 ? m_pNumClipsText.text : m_iNumClips.ToString();
     }
 
-    public abstract void GunSpecificFire(Vector2 _fireDirection);
+    public void CheckForHitObjects(GameObject _hitObject)
+    {
+        AntiTarget antiTarget = _hitObject.GetComponent<AntiTarget>();
+        if (antiTarget != null)
+        {
+            antiTarget.GotShot();
+        }
+        else
+        {
+            Block block = _hitObject.GetComponent<Block>();
+            if (block != null)
+            {
+                block.LoseHealth();
+            }
+        }
+    }
+
+    public abstract void GunSpecificFire(Vector2 _fireDirection, bool _ricochet = false);
 }

@@ -19,13 +19,13 @@ public class Shotgun : Gun
         m_pNumClipsText = m_pHudInfo.transform.Find("NumClips").GetComponent<TextMeshProUGUI>();
     }
 
-    public override void GunSpecificFire(Vector2 _fireDirection)
+    public override void GunSpecificFire(Vector2 _fireDirection, bool _ricochet = false)
     {
         Vector2 startingDirection = Util.RotateVectorByDegrees(_fireDirection, -((m_iNumShotsFired / 2) * m_fShotAngleIncrement));
 
         for (int i = 0; i < m_iNumShotsFired; ++i)
         {
-            GunshotRaycast(Util.RotateVectorByDegrees(startingDirection, i * m_fShotAngleIncrement));
+            GunshotRaycast(Util.RotateVectorByDegrees(startingDirection, i * m_fShotAngleIncrement), _ricochet);
         }
     }
 }

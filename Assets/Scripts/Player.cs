@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     private bool m_bIsJumping;
     private bool m_bIsAimingWithStick;
     private bool m_bIsFiringAutomatic;
+    private bool m_bIsFiringRicochets;
     private int m_iGunIndex;
     private int m_iConsecutiveJumps;
     private Rigidbody2D rb;
@@ -48,7 +49,9 @@ public class Player : MonoBehaviour
         }
         // Fire gun if player is currently firing automatic.
         if (m_bIsFiringAutomatic)
-            FireGun();
+        {
+            FireGun(m_bIsFiringRicochets);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -95,9 +98,9 @@ public class Player : MonoBehaviour
         m_cGuns[m_iGunIndex].transform.up = -_aimDirection;
     }
 
-    public void FireGun()
+    public void FireGun(bool _ricochet = false)
     {
-        if (m_cGuns[m_iGunIndex].Fire(-m_cGuns[m_iGunIndex].transform.up))
+        if (m_cGuns[m_iGunIndex].Fire(-m_cGuns[m_iGunIndex].transform.up, _ricochet))
         {
             m_bIsJumping = false;
             rb.velocity = Vector2.zero;
@@ -105,9 +108,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void StartFiringAutomatic()
+    public void StartFiringAutomatic(bool _ricochet = false)
     {
         m_bIsFiringAutomatic = true;
+        m_bIsFiringRicochets = _ricochet;
     }
 
     public void StopFiringAutomatic()

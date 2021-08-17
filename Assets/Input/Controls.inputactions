@@ -14,6 +14,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "FireGunRicochet",
+                    "type": "Button",
+                    "id": "69e9d67d-5110-4832-b4c5-699c51c7a5e4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "NextGun",
                     "type": "Value",
                     "id": "72731693-f29f-47c6-9710-b2d2a19a246f",
@@ -474,6 +482,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "SelectRocketLauncher",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "297a2c4f-92bd-40e5-9054-1ca07cbcfd5e",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "FireGunRicochet",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
