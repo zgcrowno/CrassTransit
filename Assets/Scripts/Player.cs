@@ -183,12 +183,7 @@ public class Player : MonoBehaviour
         {
             Gun gun = m_cGuns[i];
             gun.UpdateHUDInfo();
-            // Commenting this out in order to display all weapons (whether currently
-            // equipped or not) in the HUD.
-            //if (i != m_iGunIndex)
-            //    gun.EnableHudInfo(false);
-            //else
-            //    gun.EnableHudInfo(true);
+            gun.EnableBorder(i == m_iGunIndex);
         }
     }
 

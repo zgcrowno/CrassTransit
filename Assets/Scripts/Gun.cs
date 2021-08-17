@@ -19,6 +19,7 @@ public abstract class Gun : MonoBehaviour
     private float m_fReloadTime;
     protected GameObject m_pHudInfo;
     protected GameObject m_pReloadingImage;
+    protected GameObject m_pBorderImage;
     protected TextMeshProUGUI m_pShotsInClipText;
     protected TextMeshProUGUI m_pClipSizeText;
     protected TextMeshProUGUI m_pNumClipsText;
@@ -129,6 +130,11 @@ public abstract class Gun : MonoBehaviour
     public void EnableHudInfo(bool _enabled)
     {
         m_pHudInfo.SetActive(_enabled);
+    }
+
+    public void EnableBorder(bool _enabled)
+    {
+        m_pBorderImage.SetActive(_enabled);
     }
 
     public void UpdateHUDInfo()
