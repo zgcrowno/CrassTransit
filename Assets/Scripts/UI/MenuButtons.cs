@@ -5,6 +5,7 @@ using UnityEngine;
 public class MenuButtons : MonoBehaviour
 {
     private GameObject controller;
+    private GameObject sceneEventSystem;
 
     public void Resume()
     {
@@ -33,7 +34,12 @@ public class MenuButtons : MonoBehaviour
         if (!MenuManager.IsMainMenu())
         { 
             controller = GameObject.Find("PlayerController").gameObject;
-            controller.SetActive(false);
+            if (controller != null)
+                controller.SetActive(false);
+
+            sceneEventSystem = GameObject.Find("EventSystem").gameObject;
+            if (sceneEventSystem != null)
+                sceneEventSystem.SetActive(false);
         }
     }
 
@@ -42,7 +48,12 @@ public class MenuButtons : MonoBehaviour
         if (!MenuManager.IsMainMenu())
         { 
             Time.timeScale = 1f;
-            controller.SetActive(true);
+
+            if (controller != null)
+                controller.SetActive(true);
+
+            if (sceneEventSystem != null)
+                sceneEventSystem.SetActive(true);
         }
     }
 }

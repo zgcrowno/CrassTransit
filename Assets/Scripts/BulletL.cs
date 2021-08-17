@@ -25,15 +25,14 @@ public class BulletL : MonoBehaviour
         if (collision.gameObject.GetComponent<Player>() != null)
         {
             Debug.Log("Level FAILED");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            EndCondition.Lose(this);
         }
         
     }
     public IEnumerator destroy()
     {
-
         yield return new WaitForSeconds(4);
-        gameObject.SetActive(false);
-
+        //gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }

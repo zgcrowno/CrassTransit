@@ -20,5 +20,7 @@ public class Pistol : Gun
     public override void GunSpecificFire(Vector2 _fireDirection, bool _ricochet = false)
     {
         GunshotRaycast(_fireDirection, _ricochet);
+
+        PlayShotNoise("PistolShot", 0.1f);
     }
 }
