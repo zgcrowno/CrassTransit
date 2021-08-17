@@ -18,7 +18,7 @@ public class Goal : MonoBehaviour
             Timer timer = GameObject.Find(timerPath).GetComponent<Timer>();
             SaveSystem.SaveLevel(SceneManager.GetActiveScene().name, timer.m_fTimeSoFar);
 
-            SceneManager.LoadScene(scene);
+            EndCondition.Win(scene);
         }
     }
 }

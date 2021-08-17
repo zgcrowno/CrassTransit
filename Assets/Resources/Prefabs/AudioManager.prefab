@@ -1,0 +1,118 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8457456053336782015
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8457456053336782009}
+  - component: {fileID: 8457456053336782014}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8457456053336782009
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8457456053336782015}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 555.8151, y: 326.48083, z: -39.84243}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8457456053336782014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8457456053336782015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43412424dcadeac4e81e5dde9b521f97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: FrogRibbit
+    clip: {fileID: 8300000, guid: edc9f1e1264707341a57dabd5e865a6e, type: 3}
+    volume: 0.555
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BigProblem
+    clip: {fileID: 8300000, guid: c7a68164dad9b5042905fd6c01fb76f3, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: DoAgain
+    clip: {fileID: 8300000, guid: 8876c5b1ae1f5e3459f0e4d59df18793, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: NeverGoesWell
+    clip: {fileID: 8300000, guid: fed63441e204d924d9dd0368e8bd7aba, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Painful
+    clip: {fileID: 8300000, guid: b1d8c0b3950335148949558ab52922e4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: UhOh
+    clip: {fileID: 8300000, guid: 845abe1c122de1944b8566501a5b394d, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PistolShot
+    clip: {fileID: 8300000, guid: cf61bc93d742dbb43b95b172ad140103, type: 3}
+    volume: 0.379
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ShotgunShot
+    clip: {fileID: 8300000, guid: bf286550ff1c17549951eb2ee1cd9276, type: 3}
+    volume: 0.379
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Landing
+    clip: {fileID: 8300000, guid: 23b6d1d072f798e4886a6504cbe7732c, type: 3}
+    volume: 0.494
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: AutoShots
+    clip: {fileID: 8300000, guid: cf61bc93d742dbb43b95b172ad140103, type: 3}
+    volume: 0.071
+    pitch: 2.01
+    loop: 0
+    source: {fileID: 0}
+  - name: RocketLaunch
+    clip: {fileID: 8300000, guid: 53c00a7aac2cde749be86a9a9e0f7012, type: 3}
+    volume: 0.379
+    pitch: 0.79
+    loop: 0
+    source: {fileID: 0}
+  - name: Waaaa
+    clip: {fileID: 8300000, guid: 64cbbdd8265fc4d408634e88f406a8bf, type: 3}
+    volume: 0.379
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

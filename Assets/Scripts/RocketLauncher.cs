@@ -23,5 +23,7 @@ public class RocketLauncher : Gun
         Rocket rocket = Instantiate<GameObject>(rocketPrefab).GetComponent<Rocket>();
         rocket.transform.position = transform.position;
         rocket.FireInDirection(_fireDirection);
+
+        PlayShotNoise("RocketLaunch");
     }
 }

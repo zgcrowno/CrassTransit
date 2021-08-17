@@ -23,6 +23,8 @@ public abstract class Gun : MonoBehaviour
     protected TextMeshProUGUI m_pClipSizeText;
     protected TextMeshProUGUI m_pNumClipsText;
 
+    protected AudioManager m_cAudioManager = null;
+
     protected virtual void Awake()
     {
         m_iShotsInClip = m_iClipSize;
@@ -161,4 +163,22 @@ public abstract class Gun : MonoBehaviour
     }
 
     public abstract void GunSpecificFire(Vector2 _fireDirection, bool _ricochet = false);
+
+    protected virtual void PlayShotNoise(string clipName, float startPos = 0f)
+    {
+        if (m_cAudioManager == null)
+        {
+            try
+            {
+                m_cAudioManager = FindObjectOfType<AudioManager>().GetComponent<AudioManager>();
+            }
+            catch (System.NullReferenceException)
+            {
+                Debug.LogError("The Gun: " + this.name + " tried to find the AudioManager but couldn't find the AudioManager in the scene. Either start from the MainMenu or add the AudioManager prefab to this scene.");
+                throw;
+            }
+        }
+            
+        m_cAudioManager.Play(clipName, startPos);
+    }
 }

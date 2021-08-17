@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private CapsuleCollider2D cc;
 
+    private AudioManager m_cAudioManager;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -60,6 +62,21 @@ public class Player : MonoBehaviour
         {
             m_bIsJumping = false;
             m_iConsecutiveJumps = m_iMaxConsecutiveJumps;
+
+            if (m_cAudioManager == null)
+            {
+                try
+                {
+                    m_cAudioManager = FindObjectOfType<AudioManager>().GetComponent<AudioManager>();
+                }
+                catch (System.NullReferenceException)
+                {
+                    Debug.LogError("The Gun: " + this.name + " tried to find the AudioManager but couldn't find the AudioManager in the scene. Either start from the MainMenu or add the AudioManager prefab to this scene.");
+                    throw;
+                }
+            }
+
+            m_cAudioManager.Play("Landing", 0.2f);
         }
     }
 
@@ -68,7 +85,22 @@ public class Player : MonoBehaviour
         if (collision.gameObject.GetComponent<AntiTarget>() != null)
         {
             Debug.Log("Level FAILED");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            if (m_cAudioManager == null)
+            {
+                try
+                {
+                    m_cAudioManager = FindObjectOfType<AudioManager>().GetComponent<AudioManager>();
+                }
+                catch (System.NullReferenceException)
+                {
+                    Debug.LogError("The Gun: " + this.name + " tried to find the AudioManager but couldn't find the AudioManager in the scene. Either start from the MainMenu or add the AudioManager prefab to this scene.");
+                    throw;
+                }
+            }
+
+            m_cAudioManager.Play("FrogRibbit", 0.5f);
+
+            EndCondition.Lose(this);
         }
     }
 
