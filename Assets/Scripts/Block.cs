@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Block : MonoBehaviour
+public class Block : MonoBehaviour, IShootable
 {
     public GameObject part;
     public int Health;
@@ -41,4 +41,8 @@ public class Block : MonoBehaviour
         part.SetActive(true);
     }
 
+    public void GotShot(Vector2 _force, Vector2 _hitPoint)
+    {
+        LoseHealth();
+    }
 }

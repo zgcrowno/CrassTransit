@@ -5,6 +5,7 @@ using UnityEngine;
 public class Rocket : MonoBehaviour
 {
     public float m_fMoveSpeed;
+    public float m_fShotForce;
     public GameObject explosionPrefab;
 
     private Rigidbody2D rb;
@@ -16,11 +17,9 @@ public class Rocket : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Block block = collision.gameObject.GetComponent<Block>();
-        if (block != null)
-        {
-            block.LoseHealth();
-        }
+        IShootable shootable = collision.gameObject.GetComponent<IShootable>();
+        if (shootable != null)
+            shootable.GotShot(rb.velocity.normalized * m_fShotForce, collision.contacts[0].point);
 
         GameObject explosion = Instantiate<GameObject>(explosionPrefab);
         explosion.transform.position = transform.position;
@@ -33,7 +32,7 @@ public class Rocket : MonoBehaviour
         AntiTarget antiTarget = collision.gameObject.GetComponent<AntiTarget>();
         if (antiTarget != null)
         {
-            antiTarget.GotShot();
+            antiTarget.GotShot(Vector2.zero, Vector2.zero);
         }
     }
 

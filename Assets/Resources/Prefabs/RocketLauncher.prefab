@@ -102,5 +102,6 @@ MonoBehaviour:
   m_fMaxReloadTime: 5
   m_fShotDistance: 0
   m_fShootForce: 0
+  m_fShotForce: 60
   rayBulletPrefab: {fileID: 0}
   rocketPrefab: {fileID: 8458368192229309394, guid: 102f72570b6114942a1df182f658144e, type: 3}

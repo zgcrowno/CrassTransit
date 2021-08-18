@@ -39,10 +39,12 @@ public class Explosion : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Block block = collision.gameObject.GetComponent<Block>();
-        if (block != null)
+        IShootable shootable = collision.gameObject.GetComponent<IShootable>();
+        if (shootable != null)
         {
-            block.LoseHealth();
+            Vector2 hitPoint = collision.contacts[0].point;
+            Vector2 explosionToHit = hitPoint - new Vector2(transform.position.x, transform.position.y).normalized;
+            shootable.GotShot(explosionToHit * m_fForce, hitPoint);
         }
 
         Player player = collision.gameObject.GetComponent<Player>();
@@ -58,7 +60,7 @@ public class Explosion : MonoBehaviour
         AntiTarget antiTarget = collision.gameObject.GetComponent<AntiTarget>();
         if (antiTarget != null)
         {
-            antiTarget.GotShot();
+            antiTarget.GotShot(Vector2.zero, Vector2.zero);
         }
     }
 }

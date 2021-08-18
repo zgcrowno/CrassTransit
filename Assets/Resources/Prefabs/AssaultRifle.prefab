@@ -102,4 +102,5 @@ MonoBehaviour:
   m_fMaxReloadTime: 2
   m_fShotDistance: 10000
   m_fShootForce: 2.5
+  m_fShotForce: 15
   rayBulletPrefab: {fileID: 4260356967054570783, guid: 60f90cffa756a6344a3902e7418578ba, type: 3}
