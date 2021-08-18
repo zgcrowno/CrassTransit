@@ -25,5 +25,7 @@ public class RocketLauncher : Gun
         rocket.transform.position = transform.position;
         rocket.m_fShotForce = m_fShotForce;
         rocket.FireInDirection(_fireDirection);
+
+        PlayShotNoise("RocketLaunch");
     }
 }

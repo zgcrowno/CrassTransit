@@ -28,5 +28,7 @@ public class Shotgun : Gun
         {
             GunshotRaycast(Util.RotateVectorByDegrees(startingDirection, i * m_fShotAngleIncrement), _ricochet);
         }
+
+        PlayShotNoise("ShotgunShot");
     }
 }

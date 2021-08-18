@@ -10,8 +10,13 @@ public abstract class Hazard_Base : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Don't touch the spikes!");
-            EndCondition.Lose();
+            KillPlayer();
         }
+    }
+
+    protected virtual void KillPlayer()
+    {
+        Debug.Log("Don't touch the spikes!");
+        EndCondition.Lose(this);
     }
 }

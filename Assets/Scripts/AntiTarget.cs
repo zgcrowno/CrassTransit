@@ -7,7 +7,11 @@ public abstract class AntiTarget : MonoBehaviour, IShootable
 {
     public void GotShot(Vector2 _force, Vector2 _hitPoint)
     {
+        //Play croaking noise
+        FindObjectOfType<AudioManager>().Play("FrogRibbit", 0.5f);
+
         Debug.Log("Level FAILED");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        EndCondition.Lose(this);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
