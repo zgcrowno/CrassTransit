@@ -3459,7 +3459,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5925398209558772209, guid: 0b9a369bdd300784dabf3bb576ca0ed0, type: 3}
       propertyPath: m_iClipSize
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5925398209558772209, guid: 0b9a369bdd300784dabf3bb576ca0ed0, type: 3}
       propertyPath: m_iNumClips
