@@ -47,7 +47,17 @@ public class Player : MonoBehaviour
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
             Vector3 gunToMouse = m_cGuns[m_iGunIndex].transform.position - new Vector3(mousePos.x, mousePos.y, m_cGuns[m_iGunIndex].transform.position.z);
-            m_cGuns[m_iGunIndex].transform.up = gunToMouse;
+            // TODO: Hard coding this since the rocket launcher has a different point from which it fires.
+            if (m_iGunIndex == 3)
+            {
+                m_cGuns[m_iGunIndex].FlipSpriteX(gunToMouse.x > 0);
+                m_cGuns[m_iGunIndex].transform.up = gunToMouse;
+            }
+            else
+            {
+                m_cGuns[m_iGunIndex].FlipSpriteY(gunToMouse.x > 0);
+                m_cGuns[m_iGunIndex].transform.right = -gunToMouse;
+            }
         }
         // Fire gun if player is currently firing automatic.
         if (m_bIsFiringAutomatic)
@@ -127,16 +137,23 @@ public class Player : MonoBehaviour
 
     public void AimWithStick(Vector2 _aimDirection)
     {
-        m_cGuns[m_iGunIndex].transform.up = -_aimDirection;
+        // TODO: Hard coding this since the rocket launcher has a different point from which it fires.
+        if (m_iGunIndex == 3)
+            m_cGuns[m_iGunIndex].transform.up = -_aimDirection;
+        else
+            m_cGuns[m_iGunIndex].transform.right = -_aimDirection;
     }
 
     public void FireGun(bool _ricochet = false)
     {
-        if (m_cGuns[m_iGunIndex].Fire(-m_cGuns[m_iGunIndex].transform.up, _ricochet))
+        // TODO: Hard coding this since the rocket launcher has a different point from which it fires.
+        Vector3 directionToFireFrom = m_iGunIndex == 3 ? -m_cGuns[m_iGunIndex].transform.up : m_cGuns[m_iGunIndex].transform.right;
+
+        if (m_cGuns[m_iGunIndex].Fire(directionToFireFrom, _ricochet))
         {
             m_bIsJumping = false;
             rb.velocity = Vector2.zero;
-            rb.AddForce(m_cGuns[m_iGunIndex].transform.up * m_cGuns[m_iGunIndex].m_fShootForce, ForceMode2D.Impulse);
+            rb.AddForce(-directionToFireFrom * m_cGuns[m_iGunIndex].m_fShootForce, ForceMode2D.Impulse);
         }
     }
 

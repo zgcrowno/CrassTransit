@@ -20,6 +20,7 @@ public abstract class Gun : MonoBehaviour
     private int m_iShotsInClip;
     private float m_fTimeBetweenShots;
     private float m_fReloadTime;
+    private SpriteRenderer sr;
     protected GameObject m_pHudInfo;
     protected GameObject m_pReloadingImage;
     protected GameObject m_pBorderImage;
@@ -31,6 +32,7 @@ public abstract class Gun : MonoBehaviour
 
     protected virtual void Awake()
     {
+        sr = GetComponent<SpriteRenderer>();
         m_iShotsInClip = m_iClipSize;
     }
 
@@ -158,6 +160,16 @@ public abstract class Gun : MonoBehaviour
         IShootable shootable = _hit.collider.gameObject.GetComponent<IShootable>();
         if (shootable != null)
             shootable.GotShot(_shotForce * _shotDirection, _hit.point);
+    }
+
+    public void FlipSpriteX(bool _flip)
+    {
+        sr.flipX = _flip;
+    }
+
+    public void FlipSpriteY(bool _flip)
+    {
+        sr.flipY = _flip;
     }
 
     public abstract void GunSpecificFire(Vector2 _fireDirection, bool _ricochet = false);
