@@ -44,39 +44,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
+  - name: Waaaa
+    clip: {fileID: 8300000, guid: 64cbbdd8265fc4d408634e88f406a8bf, type: 3}
+    volume: 0.379
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   - name: FrogRibbit
     clip: {fileID: 8300000, guid: edc9f1e1264707341a57dabd5e865a6e, type: 3}
     volume: 0.555
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: BigProblem
-    clip: {fileID: 8300000, guid: c7a68164dad9b5042905fd6c01fb76f3, type: 3}
-    volume: 0.7
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: DoAgain
-    clip: {fileID: 8300000, guid: 8876c5b1ae1f5e3459f0e4d59df18793, type: 3}
-    volume: 0.8
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: NeverGoesWell
-    clip: {fileID: 8300000, guid: fed63441e204d924d9dd0368e8bd7aba, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: Painful
-    clip: {fileID: 8300000, guid: b1d8c0b3950335148949558ab52922e4, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: UhOh
-    clip: {fileID: 8300000, guid: 845abe1c122de1944b8566501a5b394d, type: 3}
-    volume: 0.8
+  - name: Landing
+    clip: {fileID: 8300000, guid: 23b6d1d072f798e4886a6504cbe7732c, type: 3}
+    volume: 0.494
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -92,12 +74,6 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Landing
-    clip: {fileID: 8300000, guid: 23b6d1d072f798e4886a6504cbe7732c, type: 3}
-    volume: 0.494
-    pitch: 1
-    loop: 0
-    source: {fileID: 0}
   - name: AutoShots
     clip: {fileID: 8300000, guid: cf61bc93d742dbb43b95b172ad140103, type: 3}
     volume: 0.071
@@ -110,9 +86,87 @@ MonoBehaviour:
     pitch: 0.79
     loop: 0
     source: {fileID: 0}
-  - name: Waaaa
-    clip: {fileID: 8300000, guid: 64cbbdd8265fc4d408634e88f406a8bf, type: 3}
-    volume: 0.379
+  - name: BestWay
+    clip: {fileID: 8300000, guid: b2ae3b2a88002ba41b2523bee05dea41, type: 3}
+    volume: 0.407
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BigProblem
+    clip: {fileID: 8300000, guid: c7a68164dad9b5042905fd6c01fb76f3, type: 3}
+    volume: 0.7
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BlindSided
+    clip: {fileID: 8300000, guid: 7da2d0d2f80e70344ad556e29b936a2e, type: 3}
+    volume: 0.709
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: CrazyStuff
+    clip: {fileID: 8300000, guid: b4807389120786b47a05d699fb85a4ee, type: 3}
+    volume: 0.72
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: DoAgain
+    clip: {fileID: 8300000, guid: 8876c5b1ae1f5e3459f0e4d59df18793, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: FreakOut
+    clip: {fileID: 8300000, guid: 314d14993ea2594418c0dc453ba310f0, type: 3}
+    volume: 0.709
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GetThroughThis
+    clip: {fileID: 8300000, guid: abda558d6a35142468b148a9680de5cb, type: 3}
+    volume: 0.72
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: NeverGoesWell
+    clip: {fileID: 8300000, guid: fed63441e204d924d9dd0368e8bd7aba, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: NotMyThing
+    clip: {fileID: 8300000, guid: 11e9ddb1474301c4aa2df8083e3f2b2c, type: 3}
+    volume: 0.703
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Ohhhh
+    clip: {fileID: 8300000, guid: 8e96166c54c29fb4ca9003f0a15efd93, type: 3}
+    volume: 0.703
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Painful
+    clip: {fileID: 8300000, guid: b1d8c0b3950335148949558ab52922e4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: ThanksWasFun
+    clip: {fileID: 8300000, guid: 43eb36169de8be241a14450a342403b8, type: 3}
+    volume: 0.703
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: UhOh
+    clip: {fileID: 8300000, guid: 845abe1c122de1944b8566501a5b394d, type: 3}
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: What
+    clip: {fileID: 8300000, guid: 7d5defbd55cbc4e4da1f71a94ee3cc9d, type: 3}
+    volume: 0.8
     pitch: 1
     loop: 0
     source: {fileID: 0}

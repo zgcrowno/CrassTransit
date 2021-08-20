@@ -22,6 +22,10 @@ public class Player : MonoBehaviour
     private CapsuleCollider2D cc;
 
     private AudioManager m_cAudioManager;
+    private string[] HeroLevelStartSayings = new string[2] {
+        "BestWay",
+        "GetThroughThis"
+    };
 
     private void Start()
     {
@@ -38,6 +42,10 @@ public class Player : MonoBehaviour
 
         // Update the HUD.
         UpdateHUDInfo();
+
+        //Say an encouraging line
+        EnsureAudioManagerExists();
+        m_cAudioManager.Play(HeroLevelStartSayings[Random.Range(0, HeroLevelStartSayings.Length)]);
     }
 
     private void Update()
@@ -73,19 +81,8 @@ public class Player : MonoBehaviour
             m_bIsJumping = false;
             m_iConsecutiveJumps = m_iMaxConsecutiveJumps;
 
-            if (m_cAudioManager == null)
-            {
-                try
-                {
-                    m_cAudioManager = FindObjectOfType<AudioManager>().GetComponent<AudioManager>();
-                }
-                catch (System.NullReferenceException)
-                {
-                    Debug.LogError("The Gun: " + this.name + " tried to find the AudioManager but couldn't find the AudioManager in the scene. Either start from the MainMenu or add the AudioManager prefab to this scene.");
-                    throw;
-                }
-            }
-
+            //Play landing noise
+            EnsureAudioManagerExists();
             m_cAudioManager.Play("Landing", 0.2f);
         }
     }
@@ -211,13 +208,14 @@ public class Player : MonoBehaviour
 
     public bool IsGrounded()
     {
-        int layerMask = LayerMask.NameToLayer("Player");
+        int layerMask = ~(1 << LayerMask.NameToLayer("Player"));
         Bounds bounds = cc.bounds;
-        Vector2 topLeft = new Vector2(bounds.center.x - bounds.extents.x, bounds.center.y);
-        Vector2 bottomRight = new Vector2(bounds.center.x + bounds.extents.x, bounds.center.y - bounds.extents.y);
+        Vector2 topLeft = new Vector2(bounds.center.x - bounds.extents.x + 0.1f, bounds.center.y);
+        Vector2 bottomRight = new Vector2(bounds.center.x + bounds.extents.x - 0.1f, bounds.center.y - bounds.extents.y);
 
         foreach (var collider in Physics2D.OverlapAreaAll(topLeft, bottomRight, layerMask))
         {
+            Debug.Log("IsGrounded() detected: " + collider.name);
             if (!collider.isTrigger)
             {
                 return true;
@@ -240,5 +238,21 @@ public class Player : MonoBehaviour
     {
         rb.velocity = Vector2.zero;
         rb.AddForce(_force, ForceMode2D.Impulse);
+    }
+
+    private void EnsureAudioManagerExists()
+    {
+        if (m_cAudioManager == null)
+        {
+            try
+            {
+                m_cAudioManager = FindObjectOfType<AudioManager>().GetComponent<AudioManager>();
+            }
+            catch (System.NullReferenceException)
+            {
+                Debug.LogError("The Gun: " + this.name + " tried to find the AudioManager but couldn't find the AudioManager in the scene. Either start from the MainMenu or add the AudioManager prefab to this scene.");
+                throw;
+            }
+        }
     }
 }
