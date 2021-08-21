@@ -74,7 +74,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+     void OnCollisionEnter2D(Collision2D collision)
     {
         if (IsGrounded())
         {
@@ -84,6 +84,21 @@ public class Player : MonoBehaviour
             //Play landing noise
             EnsureAudioManagerExists();
             m_cAudioManager.Play("Landing", 0.2f);
+        }
+        if( collision.gameObject.tag == ("Platform"))
+        {
+
+            this.transform.parent = collision.transform;
+
+        }
+    }
+     void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == ("Platform"))
+        {
+
+            this.transform.parent = null;
+
         }
     }
 
