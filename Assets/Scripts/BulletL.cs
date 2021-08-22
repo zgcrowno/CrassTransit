@@ -11,7 +11,7 @@ public class BulletL : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb.velocity = transform.right * speed;
+        rb.velocity = transform.forward * speed;
         StartCoroutine("destroy");
     }
 
