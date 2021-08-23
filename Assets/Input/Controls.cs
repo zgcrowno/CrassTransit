@@ -121,6 +121,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""TapScreen"",
+                    ""type"": ""Button"",
+                    ""id"": ""ba10f56d-d894-4d34-95a2-5fda44881f6c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -508,6 +516,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""FireGunRicochet"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""08de75ec-ee07-41d7-ae07-3291f1a57803"",
+                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TapScreen"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -529,6 +548,7 @@ public class @Controls : IInputActionCollection, IDisposable
         m_Gameplay_SelectAssaultRifle = m_Gameplay.FindAction("SelectAssaultRifle", throwIfNotFound: true);
         m_Gameplay_SelectShotgun = m_Gameplay.FindAction("SelectShotgun", throwIfNotFound: true);
         m_Gameplay_SelectRocketLauncher = m_Gameplay.FindAction("SelectRocketLauncher", throwIfNotFound: true);
+        m_Gameplay_TapScreen = m_Gameplay.FindAction("TapScreen", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -591,6 +611,7 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_SelectAssaultRifle;
     private readonly InputAction m_Gameplay_SelectShotgun;
     private readonly InputAction m_Gameplay_SelectRocketLauncher;
+    private readonly InputAction m_Gameplay_TapScreen;
     public struct GameplayActions
     {
         private @Controls m_Wrapper;
@@ -608,6 +629,7 @@ public class @Controls : IInputActionCollection, IDisposable
         public InputAction @SelectAssaultRifle => m_Wrapper.m_Gameplay_SelectAssaultRifle;
         public InputAction @SelectShotgun => m_Wrapper.m_Gameplay_SelectShotgun;
         public InputAction @SelectRocketLauncher => m_Wrapper.m_Gameplay_SelectRocketLauncher;
+        public InputAction @TapScreen => m_Wrapper.m_Gameplay_TapScreen;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -656,6 +678,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @SelectRocketLauncher.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSelectRocketLauncher;
                 @SelectRocketLauncher.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSelectRocketLauncher;
                 @SelectRocketLauncher.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSelectRocketLauncher;
+                @TapScreen.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTapScreen;
+                @TapScreen.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTapScreen;
+                @TapScreen.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTapScreen;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -699,6 +724,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @SelectRocketLauncher.started += instance.OnSelectRocketLauncher;
                 @SelectRocketLauncher.performed += instance.OnSelectRocketLauncher;
                 @SelectRocketLauncher.canceled += instance.OnSelectRocketLauncher;
+                @TapScreen.started += instance.OnTapScreen;
+                @TapScreen.performed += instance.OnTapScreen;
+                @TapScreen.canceled += instance.OnTapScreen;
             }
         }
     }
@@ -718,5 +746,6 @@ public class @Controls : IInputActionCollection, IDisposable
         void OnSelectAssaultRifle(InputAction.CallbackContext context);
         void OnSelectShotgun(InputAction.CallbackContext context);
         void OnSelectRocketLauncher(InputAction.CallbackContext context);
+        void OnTapScreen(InputAction.CallbackContext context);
     }
 }

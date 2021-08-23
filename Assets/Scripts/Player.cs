@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     private bool m_bIsFiringRicochets;
     private int m_iGunIndex;
     private int m_iConsecutiveJumps;
+    private InputType m_eInputType;
     private Rigidbody2D rb;
     private CapsuleCollider2D cc;
 
@@ -50,23 +51,8 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        // Point gun at mouse cursor's position.
-        if (!m_bIsAimingWithStick)
-        {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            Vector3 gunToMouse = m_cGuns[m_iGunIndex].transform.position - new Vector3(mousePos.x, mousePos.y, m_cGuns[m_iGunIndex].transform.position.z);
-            // TODO: Hard coding this since the rocket launcher has a different point from which it fires.
-            if (m_iGunIndex == 3)
-            {
-                m_cGuns[m_iGunIndex].FlipSpriteX(gunToMouse.x > 0);
-                m_cGuns[m_iGunIndex].transform.up = gunToMouse;
-            }
-            else
-            {
-                m_cGuns[m_iGunIndex].FlipSpriteY(gunToMouse.x > 0);
-                m_cGuns[m_iGunIndex].transform.right = -gunToMouse;
-            }
-        }
+        if (m_eInputType == InputType.mkb)
+            PointGun();
         // Fire gun if player is currently firing automatic.
         if (m_bIsFiringAutomatic)
         {
@@ -142,9 +128,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void SetAimType(bool _isAimingWithStick)
+    public void SetInputType(InputType _inputType)
     {
-        m_bIsAimingWithStick = _isAimingWithStick;
+        m_eInputType = _inputType;
     }
 
     public void AimWithStick(Vector2 _aimDirection)
@@ -253,6 +239,24 @@ public class Player : MonoBehaviour
     {
         rb.velocity = Vector2.zero;
         rb.AddForce(_force, ForceMode2D.Impulse);
+    }
+
+    public void PointGun()
+    {
+        // Point gun at mouse cursor's position.
+        Vector3 mousePos = Input.touchCount > 0 ? Camera.main.ScreenToWorldPoint(Input.touches[0].position) : Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        Vector3 gunToMouse = m_cGuns[m_iGunIndex].transform.position - new Vector3(mousePos.x, mousePos.y, m_cGuns[m_iGunIndex].transform.position.z);
+        // TODO: Hard coding this since the rocket launcher has a different point from which it fires.
+        if (m_iGunIndex == 3)
+        {
+            m_cGuns[m_iGunIndex].FlipSpriteX(gunToMouse.x > 0);
+            m_cGuns[m_iGunIndex].transform.up = gunToMouse;
+        }
+        else
+        {
+            m_cGuns[m_iGunIndex].FlipSpriteY(gunToMouse.x > 0);
+            m_cGuns[m_iGunIndex].transform.right = -gunToMouse;
+        }
     }
 
     private void EnsureAudioManagerExists()
