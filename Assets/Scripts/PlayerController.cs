@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
     private Controls controls;
     private Player m_pPlayer;
+    private GraphicRaycaster m_pGraphicRaycaster;
     private bool m_bFireInputIsActive;
     private float m_fPlayerHorizontalMovementMultiplier;
 
@@ -34,6 +37,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         m_pPlayer = GameObject.Find("Player").GetComponent<Player>();
+        m_pGraphicRaycaster = GameObject.Find("LevelCanvas").GetComponent<GraphicRaycaster>();
     }
 
     private void OnEnable()
@@ -76,14 +80,22 @@ public class PlayerController : MonoBehaviour
 
     void FirePlayerGun(bool _ricochet = false)
     {
-        m_bFireInputIsActive = true;
-        if (m_pPlayer.IsWieldingAutomatic())
+        PointerEventData ped = new PointerEventData(EventSystem.current);
+        ped.position = Input.mousePosition;
+        List<RaycastResult> raycastResults = new List<RaycastResult>();
+        m_pGraphicRaycaster.Raycast(ped, raycastResults);
+        
+        if (raycastResults.Count == 0 || raycastResults[0].gameObject.GetComponent<Timer>() != null)
         {
-            m_pPlayer.StartFiringAutomatic(_ricochet);
-        }
-        else
-        {
-            m_pPlayer.FireGun(_ricochet);
+            m_bFireInputIsActive = true;
+            if (m_pPlayer.IsWieldingAutomatic())
+            {
+                m_pPlayer.StartFiringAutomatic(_ricochet);
+            }
+            else
+            {
+                m_pPlayer.FireGun(_ricochet);
+            }
         }
     }
 
