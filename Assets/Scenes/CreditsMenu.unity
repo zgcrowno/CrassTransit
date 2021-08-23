@@ -393,10 +393,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 975702567}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12460632757c4c64cbd6f741c4d48c04, type: 3}
+  m_Script: {fileID: 11500000, guid: 88bcb2b7221b264409c63c59ffccb589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Scene: MainMenu
 --- !u!114 &975702570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,8 +441,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 975702569}
-        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
-        m_MethodName: LoadScene
+        m_TargetAssemblyTypeName: MenuButtons, Assembly-CSharp
+        m_MethodName: ReturnToMain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

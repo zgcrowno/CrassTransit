@@ -17,6 +17,11 @@ public class MenuButtons : MonoBehaviour
         MenuManager.GoToMainMenu();
     }
 
+    public void OpenCredits()
+    {
+        MenuManager.OpenCredits();
+    }
+
     public void QuitGame()
     {
         MenuManager.QuitGame();
@@ -31,7 +36,7 @@ public class MenuButtons : MonoBehaviour
     public void OnEnable()
     {
         Time.timeScale = 0f;
-        if (!MenuManager.IsMainMenu())
+        if (!MenuManager.IsMenu())
         { 
             controller = GameObject.Find("PlayerController").gameObject;
             if (controller != null)
@@ -45,7 +50,7 @@ public class MenuButtons : MonoBehaviour
 
     public void OnDisable()
     {
-        if (!MenuManager.IsMainMenu())
+        if (!MenuManager.IsMenu())
         { 
             Time.timeScale = 1f;
 

@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/PauseMenu.unity
     guid: 9479143b7ef481942a87737ab7cbf31b
   - enabled: 1
+    path: Assets/Scenes/CreditsMenu.unity
+    guid: 9f96ad32e0167554fa8aeccb8f3de3d6
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
@@ -21,11 +24,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Level 5.unity
     guid: 4174f6982c024614dae45761dbd1974a
   - enabled: 1
-    path: Assets/Scenes/Level6.unity
+    path: Assets/Scenes/Level 6.unity
     guid: c3045b012880616478f1f6a251471d0b
   - enabled: 1
-    path: Assets/Scenes/FeatureTest.unity
-    guid: 73b75a8f35d697242b6532b8dec75762
+    path: Assets/Scenes/Level 7.unity
+    guid: d9e669eef6f2c1d40ac198071ca57654
+  - enabled: 1
+    path: Assets/Scenes/Level 8.unity
+    guid: c8241de4300fc634abc509fa767aab98
   - enabled: 1
     path: Assets/Scenes/Garrison_01.unity
     guid: 186f9bba702bac54a8c0e0dfdab9e796

@@ -26,6 +26,15 @@ public static class MenuManager
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 
+    public static void OpenCredits()
+    {
+        if (SceneManager.sceneCount > 1) //Pause menu must be open
+        {
+            SceneManager.UnloadSceneAsync("PauseMenu");
+        }
+        SceneManager.LoadScene("CreditsMenu", LoadSceneMode.Single);
+    }
+
     public static void QuitGame()
     {
 #if UNITY_EDITOR
@@ -35,8 +44,8 @@ public static class MenuManager
 #endif
     }
 
-    public static bool IsMainMenu()
+    public static bool IsMenu()
     {
-        return (SceneManager.GetActiveScene().name == "MainMenu");
+        return (SceneManager.GetActiveScene().name == "MainMenu" || SceneManager.GetActiveScene().name == "CreditsMenu");
     }
 }
