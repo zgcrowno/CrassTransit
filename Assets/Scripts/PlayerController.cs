@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public enum InputType
 {
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private Controls controls;
     private Player m_pPlayer;
     private GraphicRaycaster m_pGraphicRaycaster;
+    private TextMeshProUGUI m_tRicochetOnOffText;
     private bool m_bFireInputIsActive;
     private float m_fPlayerHorizontalMovementMultiplier;
 
@@ -39,6 +41,8 @@ public class PlayerController : MonoBehaviour
         controls.Gameplay.SelectShotgun.performed += ctx => m_pPlayer.EquipGunAtIndex(2);
         controls.Gameplay.SelectRocketLauncher.performed += ctx => m_pPlayer.EquipGunAtIndex(3);
         controls.Gameplay.TapScreen.performed += ctx => RegisterScreenTap();
+        controls.Gameplay.PressScreen.performed += ctx => RegisterScreenPress();
+        controls.Gameplay.PressScreen.canceled += ctx => StopFiringPlayerGun();
     }
 
     // Start is called before the first frame update
@@ -46,6 +50,7 @@ public class PlayerController : MonoBehaviour
     {
         m_pPlayer = GameObject.Find("Player").GetComponent<Player>();
         m_pGraphicRaycaster = GameObject.Find("LevelCanvas").GetComponent<GraphicRaycaster>();
+        m_tRicochetOnOffText = GameObject.Find("OnOffText").GetComponent<TextMeshProUGUI>();
     }
 
     private void OnEnable()
@@ -97,14 +102,16 @@ public class PlayerController : MonoBehaviour
         {
             m_pPlayer.PointGun();
 
+            m_pPlayer.SetIsFiringRicochets(_ricochet);
+            m_tRicochetOnOffText.text = _ricochet ? "On" : "Off";
             m_bFireInputIsActive = true;
             if (m_pPlayer.IsWieldingAutomatic())
             {
-                m_pPlayer.StartFiringAutomatic(_ricochet);
+                m_pPlayer.StartFiringAutomatic();
             }
             else
             {
-                m_pPlayer.FireGun(_ricochet);
+                m_pPlayer.FireGun();
             }
         }
     }
@@ -112,18 +119,15 @@ public class PlayerController : MonoBehaviour
     void RegisterScreenTap()
     {
         m_pPlayer.SetInputType(InputType.touch);
+        
+        FirePlayerGun(m_pPlayer.IsFiringRicochets());
+    }
 
-        switch (Input.touchCount)
-        {
-            case 1:
-                FirePlayerGun();
+    void RegisterScreenPress()
+    {
+        m_pPlayer.SetInputType(InputType.touch);
 
-                break;
-            case 2:
-                FirePlayerGun(true);
-
-                break;
-        }
+        FirePlayerGun(m_pPlayer.IsFiringRicochets());
     }
 
     void StopFiringPlayerGun()

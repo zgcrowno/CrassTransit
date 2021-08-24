@@ -51,12 +51,12 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (m_eInputType == InputType.mkb)
+        if (m_eInputType == InputType.mkb || (m_eInputType == InputType.touch && m_bIsFiringAutomatic))
             PointGun();
         // Fire gun if player is currently firing automatic.
         if (m_bIsFiringAutomatic)
         {
-            FireGun(m_bIsFiringRicochets);
+            FireGun();
         }
     }
 
@@ -142,12 +142,12 @@ public class Player : MonoBehaviour
             m_cGuns[m_iGunIndex].transform.right = -_aimDirection;
     }
 
-    public void FireGun(bool _ricochet = false)
+    public void FireGun()
     {
         // TODO: Hard coding this since the rocket launcher has a different point from which it fires.
         Vector3 directionToFireFrom = m_iGunIndex == 3 ? -m_cGuns[m_iGunIndex].transform.up : m_cGuns[m_iGunIndex].transform.right;
 
-        if (m_cGuns[m_iGunIndex].Fire(directionToFireFrom, _ricochet))
+        if (m_cGuns[m_iGunIndex].Fire(directionToFireFrom, m_bIsFiringRicochets))
         {
             m_bIsJumping = false;
             rb.velocity = Vector2.zero;
@@ -155,10 +155,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void StartFiringAutomatic(bool _ricochet = false)
+    public void StartFiringAutomatic()
     {
         m_bIsFiringAutomatic = true;
-        m_bIsFiringRicochets = _ricochet;
     }
 
     public void StopFiringAutomatic()
@@ -223,6 +222,16 @@ public class Player : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public bool IsFiringRicochets()
+    {
+        return m_bIsFiringRicochets;
+    }
+
+    public void SetIsFiringRicochets(bool _isFiringRicochets)
+    {
+        m_bIsFiringRicochets = _isFiringRicochets;
     }
 
     public void UpdateHUDInfo()

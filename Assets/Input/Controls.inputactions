@@ -116,6 +116,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "PressScreen",
+                    "type": "Button",
+                    "id": "c46622f1-7590-4792-8d13-1dc5fcda99c1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -512,6 +520,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "TapScreen",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "95239ab0-d415-4063-9845-f7b749a1cb5d",
+                    "path": "<Touchscreen>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PressScreen",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
