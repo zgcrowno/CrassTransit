@@ -16,9 +16,9 @@ public static class SaveSystem
         stream.Close();
     }
 
-    public static void SaveLevel(string levelName, float levelScore)
+    public static void SaveLevel(string levelName, float levelScore, int starRanking)
     {
-        LevelSave newLevelSave = new LevelSave(levelName, levelScore);
+        LevelSave newLevelSave = new LevelSave(levelName, levelScore, starRanking);
         SaveData saveData = LoadSaveData();
 
         bool matchingLevel = false;

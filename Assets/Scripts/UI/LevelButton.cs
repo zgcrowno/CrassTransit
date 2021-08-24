@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelButton : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class LevelButton : MonoBehaviour
     private bool completed;
     private float bestTime;
 
-    public void InitializeButton(string name, bool completed, float bestTime)
+    public void InitializeButton(string name, bool completed, float bestTime, int starRanking)
     {
         levelName = name;
         this.completed = completed;
@@ -29,6 +30,13 @@ public class LevelButton : MonoBehaviour
             GameObject bestScore_go = transform.Find("BestScore_Dynamic").gameObject;
             bestScore_go.SetActive(true);
             bestScore_go.GetComponent<TextMeshProUGUI>().text = Stringify(this.bestTime);
+
+            GameObject starRanking_go = transform.Find("StarRanking").gameObject;
+            starRanking_go.SetActive(true);
+            for (int i = 0; i < starRanking && i < starRanking_go.transform.childCount; ++i)
+            {
+                starRanking_go.transform.GetChild(i).GetComponent<Image>().color = new Color(1, 1, 1);
+            }
         }
 
         else

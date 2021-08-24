@@ -840,6 +840,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: Garrison_02
+  threeStarTimeThreshold: 9
+  twoStarTimeThreshold: 13
 --- !u!61 &768817990
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -36,11 +36,11 @@ public class MainMenuInitializer : MonoBehaviour
                 if (saveNames.Contains(scenes[i]))
                 {
                     int idx = saveNames.IndexOf(scenes[i]);
-                    curButton.GetComponent<LevelButton>().InitializeButton(scenes[i], true, saveData.levelSaves[idx].score);
+                    curButton.GetComponent<LevelButton>().InitializeButton(scenes[i], true, saveData.levelSaves[idx].score, saveData.levelSaves[idx].starRanking);
                 }
                 else
                 {
-                    curButton.GetComponent<LevelButton>().InitializeButton(scenes[i], false, 0f);
+                    curButton.GetComponent<LevelButton>().InitializeButton(scenes[i], false, 0f, 1);
                 }
             }
         }

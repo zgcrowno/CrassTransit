@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class Goal : MonoBehaviour
 {
     public string scene;
+    public float threeStarTimeThreshold;
+    public float twoStarTimeThreshold;
 
     private const string timerPath = "LevelCanvas/HUD/Timer";
 
@@ -16,7 +18,8 @@ public class Goal : MonoBehaviour
             Debug.Log("Level Beaten!!!");
 
             Timer timer = GameObject.Find(timerPath).GetComponent<Timer>();
-            SaveSystem.SaveLevel(SceneManager.GetActiveScene().name, timer.m_fTimeSoFar);
+            int starRanking = timer.m_fTimeSoFar <= threeStarTimeThreshold ? 3 : timer.m_fTimeSoFar <= twoStarTimeThreshold ? 2 : 1;
+            SaveSystem.SaveLevel(SceneManager.GetActiveScene().name, timer.m_fTimeSoFar, starRanking);
 
             EndCondition.Win(this, scene);
         }

@@ -693,6 +693,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: MainMenu
+  threeStarTimeThreshold: 15
+  twoStarTimeThreshold: 21
 --- !u!61 &768817990
 BoxCollider2D:
   m_ObjectHideFlags: 0
