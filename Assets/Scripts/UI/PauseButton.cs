@@ -1,18 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class PauseButton : MonoBehaviour
+public class PauseButton : MonoBehaviour, IPointerClickHandler
 {
-    // Start is called before the first frame update
-    void Start()
+    public void OnPointerClick(PointerEventData eventData)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        MenuManager.TogglePauseMenu();
     }
 }

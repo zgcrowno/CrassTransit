@@ -5,7 +5,7 @@ using UnityEngine;
 public class MenuButtons : MonoBehaviour
 {
     private GameObject controller;
-    private GameObject sceneEventSystem;
+    //private GameObject sceneEventSystem;
 
     public void Resume()
     {
@@ -42,23 +42,23 @@ public class MenuButtons : MonoBehaviour
             if (controller != null)
                 controller.SetActive(false);
 
-            sceneEventSystem = GameObject.Find("EventSystem").gameObject;
-            if (sceneEventSystem != null)
-                sceneEventSystem.SetActive(false);
+            //sceneEventSystem = GameObject.Find("EventSystem").gameObject;
+            //if (sceneEventSystem != null)
+            //    sceneEventSystem.SetActive(false);
         }
     }
 
     public void OnDisable()
     {
         if (!MenuManager.IsMenu())
-        { 
+        {
             Time.timeScale = 1f;
 
             if (controller != null)
                 controller.SetActive(true);
 
-            if (sceneEventSystem != null)
-                sceneEventSystem.SetActive(true);
+            //if (sceneEventSystem != null)
+            //    sceneEventSystem.SetActive(true);
         }
     }
 }

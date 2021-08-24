@@ -110,14 +110,6 @@
                     "interactions": ""
                 },
                 {
-                    "name": "TapScreen",
-                    "type": "Button",
-                    "id": "ba10f56d-d894-4d34-95a2-5fda44881f6c",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "PressScreen",
                     "type": "Button",
                     "id": "c46622f1-7590-4792-8d13-1dc5fcda99c1",
@@ -509,17 +501,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "FireGunRicochet",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "08de75ec-ee07-41d7-ae07-3291f1a57803",
-                    "path": "<Touchscreen>/primaryTouch/tap",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "TapScreen",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

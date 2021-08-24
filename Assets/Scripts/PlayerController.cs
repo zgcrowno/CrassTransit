@@ -40,7 +40,6 @@ public class PlayerController : MonoBehaviour
         controls.Gameplay.SelectAssaultRifle.performed += ctx => m_pPlayer.EquipGunAtIndex(1);
         controls.Gameplay.SelectShotgun.performed += ctx => m_pPlayer.EquipGunAtIndex(2);
         controls.Gameplay.SelectRocketLauncher.performed += ctx => m_pPlayer.EquipGunAtIndex(3);
-        controls.Gameplay.TapScreen.performed += ctx => RegisterScreenTap();
         controls.Gameplay.PressScreen.performed += ctx => RegisterScreenPress();
         controls.Gameplay.PressScreen.canceled += ctx => StopFiringPlayerGun();
     }
@@ -114,13 +113,6 @@ public class PlayerController : MonoBehaviour
                 m_pPlayer.FireGun();
             }
         }
-    }
-
-    void RegisterScreenTap()
-    {
-        m_pPlayer.SetInputType(InputType.touch);
-        
-        FirePlayerGun(m_pPlayer.IsFiringRicochets());
     }
 
     void RegisterScreenPress()
