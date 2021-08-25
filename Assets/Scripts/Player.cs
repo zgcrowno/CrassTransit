@@ -229,6 +229,11 @@ public class Player : MonoBehaviour
         return m_bIsFiringRicochets;
     }
 
+    public int GetGunIndex()
+    {
+        return m_iGunIndex;
+    }
+
     public void SetIsFiringRicochets(bool _isFiringRicochets)
     {
         m_bIsFiringRicochets = _isFiringRicochets;

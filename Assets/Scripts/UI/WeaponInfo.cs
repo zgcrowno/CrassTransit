@@ -17,6 +17,9 @@ public class WeaponInfo : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        m_pPlayer.EquipGunAtIndex(m_iWeaponIndex);
+        if (m_iWeaponIndex == m_pPlayer.GetGunIndex())
+            m_pPlayer.Reload();
+        else
+            m_pPlayer.EquipGunAtIndex(m_iWeaponIndex);
     }
 }
