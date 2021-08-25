@@ -2555,8 +2555,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: Kamm_01
-  threeStarTimeThreshold: 13
-  twoStarTimeThreshold: 20
+  threeStarTimeThreshold: 15
+  twoStarTimeThreshold: 22
 --- !u!61 &768817990
 BoxCollider2D:
   m_ObjectHideFlags: 0

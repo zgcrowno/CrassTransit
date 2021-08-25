@@ -48,6 +48,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Garrison_05.unity
     guid: 03a9e8c7c9558c24a8cb4095f8d85554
   - enabled: 1
+    path: Assets/Scenes/Garrison_06.unity
+    guid: 18d441605e2280841b6f919a96784143
+  - enabled: 1
     path: Assets/Scenes/Kamm_01.unity
     guid: 880427acc239c5247b5dff7196f27613
   m_configObjects: {}
