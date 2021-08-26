@@ -237,7 +237,7 @@ MonoBehaviour:
   - {fileID: 5668633203090299976}
   - {fileID: 7493635655183807091}
   m_Bounds:
-    m_Center: {x: -0.015035018, y: 0.02316001, z: 0}
+    m_Center: {x: -0.015035018, y: 0.023159951, z: 0}
     m_Extent: {x: 0.16290502, y: 0.3491901, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -837,6 +837,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 791993229248432021}
     m_Modifications:
     - target: {fileID: 4181422984701266891, guid: ad71416608dc7ff4e9cfcdc3d5f42627, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4181422984701266891, guid: ad71416608dc7ff4e9cfcdc3d5f42627, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4181422984701266891, guid: ad71416608dc7ff4e9cfcdc3d5f42627, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ddf3aa0b02c7e5447ad9682e90351dcc, type: 3}
+    - target: {fileID: 4181422984701266891, guid: ad71416608dc7ff4e9cfcdc3d5f42627, type: 3}
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
@@ -854,11 +866,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8296816105019131007, guid: ad71416608dc7ff4e9cfcdc3d5f42627, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.037
       objectReference: {fileID: 0}
     - target: {fileID: 8296816105019131007, guid: ad71416608dc7ff4e9cfcdc3d5f42627, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.017
       objectReference: {fileID: 0}
     - target: {fileID: 8296816105019131007, guid: ad71416608dc7ff4e9cfcdc3d5f42627, type: 3}
       propertyPath: m_LocalPosition.z
