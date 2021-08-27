@@ -27,7 +27,12 @@ public class BulletL : MonoBehaviour
             Debug.Log("Level FAILED");
             EndCondition.Lose(this);
         }
-        
+        if (collision.tag == ("Wall"))
+        {
+
+            gameObject.SetActive(false);
+        }
+
     }
     public IEnumerator destroy()
     {

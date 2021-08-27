@@ -27,6 +27,11 @@ public class Bullet : MonoBehaviour
             Debug.Log("Level FAILED");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+        if (collision.tag == ("Wall"))
+        {
+            
+            gameObject.SetActive(false);
+        }
 
     }
     public IEnumerator destroy()

@@ -264,7 +264,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &96235002
 GameObject:
@@ -308,7 +308,7 @@ Transform:
   m_Children:
   - {fileID: 1414992887}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &142057130
 PrefabInstance:
@@ -1839,7 +1839,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 32176474731802768, guid: 433b15cca61c4f74b835ae8639981fa6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4265746065409173331, guid: 433b15cca61c4f74b835ae8639981fa6, type: 3}
       propertyPath: m_Pivot.x
@@ -2050,7 +2050,7 @@ Transform:
   m_LocalScale: {x: 3.8235002, y: 3.9608998, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &776883687
 PrefabInstance:
@@ -6669,7 +6669,7 @@ Transform:
   m_LocalScale: {x: 4.626, y: 3.872569, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1752505555
 GameObject:
@@ -6751,7 +6751,7 @@ Transform:
   m_LocalScale: {x: 4.626, y: 3.872569, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1786549369
 PrefabInstance:
@@ -7015,7 +7015,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &1899215348
 PrefabInstance:
@@ -7162,7 +7162,7 @@ Transform:
   m_LocalScale: {x: 2.553552, y: 3.872569, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2012001872
 GameObject:
