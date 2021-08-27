@@ -31,7 +31,7 @@ public class BulletL : MonoBehaviour
     }
     public IEnumerator destroy()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(.75f);
         //gameObject.SetActive(false);
         Destroy(gameObject);
     }
