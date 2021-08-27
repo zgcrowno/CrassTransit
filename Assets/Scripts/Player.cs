@@ -135,17 +135,12 @@ public class Player : MonoBehaviour
 
     public void AimWithStick(Vector2 _aimDirection)
     {
-        // TODO: Hard coding this since the rocket launcher has a different point from which it fires.
-        if (m_iGunIndex == 3)
-            m_cGuns[m_iGunIndex].transform.up = -_aimDirection;
-        else
-            m_cGuns[m_iGunIndex].transform.right = -_aimDirection;
+        m_cGuns[m_iGunIndex].transform.right = -_aimDirection;
     }
 
     public void FireGun()
     {
-        // TODO: Hard coding this since the rocket launcher has a different point from which it fires.
-        Vector3 directionToFireFrom = m_iGunIndex == 3 ? -m_cGuns[m_iGunIndex].transform.up : m_cGuns[m_iGunIndex].transform.right;
+        Vector3 directionToFireFrom = m_cGuns[m_iGunIndex].transform.right;
 
         if (m_cGuns[m_iGunIndex].Fire(directionToFireFrom, m_bIsFiringRicochets))
         {
@@ -260,17 +255,8 @@ public class Player : MonoBehaviour
         // Point gun at mouse cursor's position.
         Vector3 mousePos = Input.touchCount > 0 ? Camera.main.ScreenToWorldPoint(Input.touches[0].position) : Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         Vector3 gunToMouse = m_cGuns[m_iGunIndex].transform.position - new Vector3(mousePos.x, mousePos.y, m_cGuns[m_iGunIndex].transform.position.z);
-        // TODO: Hard coding this since the rocket launcher has a different point from which it fires.
-        if (m_iGunIndex == 3)
-        {
-            m_cGuns[m_iGunIndex].FlipSpriteX(gunToMouse.x > 0);
-            m_cGuns[m_iGunIndex].transform.up = gunToMouse;
-        }
-        else
-        {
-            m_cGuns[m_iGunIndex].FlipSpriteY(gunToMouse.x > 0);
-            m_cGuns[m_iGunIndex].transform.right = -gunToMouse;
-        }
+        m_cGuns[m_iGunIndex].FlipSpriteY(gunToMouse.x > 0);
+        m_cGuns[m_iGunIndex].transform.right = -gunToMouse;
     }
 
     private void EnsureAudioManagerExists()
