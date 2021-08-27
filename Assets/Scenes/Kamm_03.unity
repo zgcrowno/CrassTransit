@@ -669,7 +669,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.77
+  orthographic size: 9.49
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -922,8 +922,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene: Garrison_06
-  threeStarTimeThreshold: 15
-  twoStarTimeThreshold: 21
+  threeStarTimeThreshold: 20
+  twoStarTimeThreshold: 30
 --- !u!61 &768817990
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3629,7 +3629,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8457456053336782009, guid: dfdddac68501007489a411f8af557a16, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8457456053336782009, guid: dfdddac68501007489a411f8af557a16, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4192,26 +4192,6 @@ PrefabInstance:
     - target: {fileID: 1644511103513419758, guid: 0b9a369bdd300784dabf3bb576ca0ed0, type: 3}
       propertyPath: m_LocalPosition.z
       value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2750466827864110801, guid: 0b9a369bdd300784dabf3bb576ca0ed0, type: 3}
-      propertyPath: m_iNumClips
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3568965858851627294, guid: 0b9a369bdd300784dabf3bb576ca0ed0, type: 3}
-      propertyPath: m_iNumClips
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4853345060499679666, guid: 0b9a369bdd300784dabf3bb576ca0ed0, type: 3}
-      propertyPath: m_iClipSize
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4853345060499679666, guid: 0b9a369bdd300784dabf3bb576ca0ed0, type: 3}
-      propertyPath: m_iNumClips
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5925398209558772209, guid: 0b9a369bdd300784dabf3bb576ca0ed0, type: 3}
-      propertyPath: m_iNumClips
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b9a369bdd300784dabf3bb576ca0ed0, type: 3}

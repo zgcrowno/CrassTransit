@@ -2230,6 +2230,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55b25eb406374ac49a20ae203b8f0c61, type: 3}
+--- !u!1001 &2054951911
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8457456053336782009, guid: dfdddac68501007489a411f8af557a16, type: 3}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 8457456053336782009, guid: dfdddac68501007489a411f8af557a16, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 555.8151
+      objectReference: {fileID: 0}
+    - target: {fileID: 8457456053336782009, guid: dfdddac68501007489a411f8af557a16, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 326.48083
+      objectReference: {fileID: 0}
+    - target: {fileID: 8457456053336782009, guid: dfdddac68501007489a411f8af557a16, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -39.84243
+      objectReference: {fileID: 0}
+    - target: {fileID: 8457456053336782009, guid: dfdddac68501007489a411f8af557a16, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8457456053336782009, guid: dfdddac68501007489a411f8af557a16, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8457456053336782009, guid: dfdddac68501007489a411f8af557a16, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8457456053336782009, guid: dfdddac68501007489a411f8af557a16, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8457456053336782009, guid: dfdddac68501007489a411f8af557a16, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8457456053336782009, guid: dfdddac68501007489a411f8af557a16, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8457456053336782009, guid: dfdddac68501007489a411f8af557a16, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8457456053336782015, guid: dfdddac68501007489a411f8af557a16, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dfdddac68501007489a411f8af557a16, type: 3}
 --- !u!1001 &2071182743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2354,38 +2411,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -1
       objectReference: {fileID: 0}
-    - target: {fileID: 2750466827864110801, guid: 0b9a369bdd300784dabf3bb576ca0ed0, type: 3}
-      propertyPath: m_iClipSize
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2750466827864110801, guid: 0b9a369bdd300784dabf3bb576ca0ed0, type: 3}
-      propertyPath: m_iNumClips
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3568965858851627294, guid: 0b9a369bdd300784dabf3bb576ca0ed0, type: 3}
-      propertyPath: m_iClipSize
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3568965858851627294, guid: 0b9a369bdd300784dabf3bb576ca0ed0, type: 3}
-      propertyPath: m_iNumClips
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4853345060499679666, guid: 0b9a369bdd300784dabf3bb576ca0ed0, type: 3}
-      propertyPath: m_iClipSize
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4853345060499679666, guid: 0b9a369bdd300784dabf3bb576ca0ed0, type: 3}
-      propertyPath: m_iNumClips
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5925398209558772209, guid: 0b9a369bdd300784dabf3bb576ca0ed0, type: 3}
-      propertyPath: m_iClipSize
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5925398209558772209, guid: 0b9a369bdd300784dabf3bb576ca0ed0, type: 3}
-      propertyPath: m_iNumClips
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b9a369bdd300784dabf3bb576ca0ed0, type: 3}
 --- !u!1001 &6659039950113898683
@@ -2401,7 +2426,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 32176474731802768, guid: 433b15cca61c4f74b835ae8639981fa6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4265746065409173331, guid: 433b15cca61c4f74b835ae8639981fa6, type: 3}
       propertyPath: m_Pivot.x
