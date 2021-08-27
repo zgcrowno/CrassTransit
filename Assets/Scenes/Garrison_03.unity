@@ -1215,7 +1215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40a1c52e1782c784398941cc7a421796, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: Garrison_04
+  scene: Kamm_03
   threeStarTimeThreshold: 6
   twoStarTimeThreshold: 7.5
 --- !u!61 &768817990

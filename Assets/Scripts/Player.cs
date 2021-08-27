@@ -210,7 +210,6 @@ public class Player : MonoBehaviour
 
         foreach (var collider in Physics2D.OverlapAreaAll(topLeft, bottomRight, layerMask))
         {
-            Debug.Log("IsGrounded() detected: " + collider.name);
             if (!collider.isTrigger)
             {
                 return true;

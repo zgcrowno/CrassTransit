@@ -11,14 +11,14 @@ public class LevelButton : MonoBehaviour
     private bool completed;
     private float bestTime;
 
-    public void InitializeButton(string name, bool completed, float bestTime, int starRanking)
+    public void InitializeButton(string name, bool completed, float bestTime, int starRanking, string displayName = "")
     {
         levelName = name;
         this.completed = completed;
         this.bestTime = bestTime;
 
         TextMeshProUGUI levelName_tmp = transform.Find("LevelName").GetComponent<TextMeshProUGUI>();
-        levelName_tmp.text = levelName;
+        levelName_tmp.text = displayName != "" ? displayName : levelName;
 
         if (this.completed)
         {

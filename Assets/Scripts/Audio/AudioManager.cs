@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -7,6 +8,8 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
 
     public Sound[] sounds;
+    public const int numMusicTracks = 9;
+    public bool playBGM = true;
 
     private void Awake()
     {
@@ -33,7 +36,10 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        //Play BGM
+        if (playBGM)
+        {
+            StartCoroutine(PlayerOfBGM());
+        }
     }
 
     public AudioSource Play(string name, float startTime = 0f)
@@ -47,5 +53,26 @@ public class AudioManager : MonoBehaviour
         s.source.Play();
         s.source.time = startTime;
         return s.source;
+    }
+
+    private IEnumerator PlayerOfBGM()
+    {
+        AudioSource curBGM = Play(GetRandomBGM());
+
+        while (playBGM)
+        {
+            if (!curBGM.isPlaying)
+            {
+                curBGM = Play(GetRandomBGM());
+            }
+            yield return null;
+        }
+    }
+
+    private string GetRandomBGM()
+    {
+        int idx = UnityEngine.Random.Range(1, numMusicTracks + 1);
+        Debug.Log("GotRandomBGM: BGM_" + idx);
+        return "BGM_" + idx;
     }
 }

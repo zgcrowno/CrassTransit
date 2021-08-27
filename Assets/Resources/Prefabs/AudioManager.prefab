@@ -58,19 +58,19 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Landing
     clip: {fileID: 8300000, guid: 23b6d1d072f798e4886a6504cbe7732c, type: 3}
-    volume: 0.494
+    volume: 0.339
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: PistolShot
     clip: {fileID: 8300000, guid: cf61bc93d742dbb43b95b172ad140103, type: 3}
-    volume: 0.379
+    volume: 0.133
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: ShotgunShot
     clip: {fileID: 8300000, guid: bf286550ff1c17549951eb2ee1cd9276, type: 3}
-    volume: 0.379
+    volume: 0.133
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -88,43 +88,43 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: BestWay
     clip: {fileID: 8300000, guid: b2ae3b2a88002ba41b2523bee05dea41, type: 3}
-    volume: 0.407
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: BigProblem
     clip: {fileID: 8300000, guid: c7a68164dad9b5042905fd6c01fb76f3, type: 3}
-    volume: 0.7
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: BlindSided
     clip: {fileID: 8300000, guid: 7da2d0d2f80e70344ad556e29b936a2e, type: 3}
-    volume: 0.709
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: CrazyStuff
     clip: {fileID: 8300000, guid: b4807389120786b47a05d699fb85a4ee, type: 3}
-    volume: 0.72
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: DoAgain
     clip: {fileID: 8300000, guid: 8876c5b1ae1f5e3459f0e4d59df18793, type: 3}
-    volume: 0.8
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: FreakOut
     clip: {fileID: 8300000, guid: 314d14993ea2594418c0dc453ba310f0, type: 3}
-    volume: 0.709
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: GetThroughThis
     clip: {fileID: 8300000, guid: abda558d6a35142468b148a9680de5cb, type: 3}
-    volume: 0.72
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -136,13 +136,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: NotMyThing
     clip: {fileID: 8300000, guid: 11e9ddb1474301c4aa2df8083e3f2b2c, type: 3}
-    volume: 0.703
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Ohhhh
     clip: {fileID: 8300000, guid: 8e96166c54c29fb4ca9003f0a15efd93, type: 3}
-    volume: 0.703
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -154,19 +154,74 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: ThanksWasFun
     clip: {fileID: 8300000, guid: 43eb36169de8be241a14450a342403b8, type: 3}
-    volume: 0.703
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: UhOh
     clip: {fileID: 8300000, guid: 845abe1c122de1944b8566501a5b394d, type: 3}
-    volume: 0.8
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: What
     clip: {fileID: 8300000, guid: 7d5defbd55cbc4e4da1f71a94ee3cc9d, type: 3}
-    volume: 0.8
+    volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: BGM_1
+    clip: {fileID: 8300000, guid: d295782d041b777478e1de2fb4dd66c7, type: 3}
+    volume: 0.05
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BGM_2
+    clip: {fileID: 8300000, guid: 63470fffe2ecf0f4fa5ec53bf7ea07c0, type: 3}
+    volume: 0.05
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BGM_3
+    clip: {fileID: 8300000, guid: 285061dbeef87f840946c56c725f8747, type: 3}
+    volume: 0.05
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BGM_4
+    clip: {fileID: 8300000, guid: 51ad3bb9a5352a74e833a5d051b7c8c8, type: 3}
+    volume: 0.05
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BGM_5
+    clip: {fileID: 8300000, guid: e3bdc3f804c55e441a7d3523013043ba, type: 3}
+    volume: 0.05
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BGM_6
+    clip: {fileID: 8300000, guid: 72566fc35a9bce248a15e1062c843d9b, type: 3}
+    volume: 0.05
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BGM_7
+    clip: {fileID: 8300000, guid: e5356e3b0acdb8a4a8c082250a301ad2, type: 3}
+    volume: 0.05
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BGM_8
+    clip: {fileID: 8300000, guid: a6795a3e150bfbf46b8ad8d027e67b38, type: 3}
+    volume: 0.05
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BGM_9
+    clip: {fileID: 8300000, guid: 6181c5755d1b17e498106dab4ccad8a6, type: 3}
+    volume: 0.05
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  playBGM: 1

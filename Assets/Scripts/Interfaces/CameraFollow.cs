@@ -19,7 +19,7 @@ public class CameraFollow : MonoBehaviour
         rb = player.GetComponent<Rigidbody2D>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         Vector2 follow = player.transform.position;
         float xDiff = Vector2.Distance(Vector2.right * transform.position.x, Vector2.right * follow.x);
@@ -37,8 +37,10 @@ public class CameraFollow : MonoBehaviour
             newposition.y = follow.y;
 
         }
-        float movespeed = rb.velocity.magnitude > speed ? rb.velocity.magnitude : speed;
-        transform.position = Vector3.MoveTowards(transform.position, newposition, speed * Time.deltaTime);
+        //float movespeed = rb.velocity.magnitude > speed ? rb.velocity.magnitude : speed;
+        float movespeed = rb.velocity.magnitude;
+        //transform.position = Vector3.MoveTowards(transform.position, newposition, movespeed * Time.deltaTime);
+        transform.position += (newposition - transform.position).normalized * movespeed * Time.deltaTime;
     }
     
     private Vector3 calculat()
