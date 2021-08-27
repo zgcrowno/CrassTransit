@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3980240846792157686}
   - component: {fileID: 3980240846792157681}
   m_Layer: 0
-  m_Name: RightShootingFrog
+  m_Name: RightShootingFrog 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,6 +84,18 @@ PrefabInstance:
     - target: {fileID: 1638883338598439255, guid: 55b25eb406374ac49a20ae203b8f0c61, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.074
+      objectReference: {fileID: 0}
+    - target: {fileID: 1638883338598439255, guid: 55b25eb406374ac49a20ae203b8f0c61, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1638883338598439255, guid: 55b25eb406374ac49a20ae203b8f0c61, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1638883338598439255, guid: 55b25eb406374ac49a20ae203b8f0c61, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4528528049132775887, guid: 55b25eb406374ac49a20ae203b8f0c61, type: 3}
       propertyPath: m_Name
